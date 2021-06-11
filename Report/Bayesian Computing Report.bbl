@@ -1,0 +1,66 @@
+\begin{thebibliography}{10}
+
+\bibitem{brunton_kutz_2019}
+Steven~L. Brunton and J.~Nathan Kutz.
+\newblock {\em Data-Driven Science and Engineering: Machine Learning, Dynamical
+  Systems, and Control}.
+\newblock Cambridge University Press, 2019.
+
+\bibitem{Spectrogram}
+Kartik Chaudhary.
+\newblock Understanding audio data, fourier transform, fft and spectrogram
+  features for a speech recognition system.
+\newblock
+  \url{https://towardsdatascience.com/understanding-audio-data-fourier-transform-fft-spectrogram-and-speech-recognition-a4072d228520},
+  January 2021.
+
+\bibitem{cochran1967fast}
+William~T Cochran, James~W Cooley, David~L Favin, Howard~D Helms, Reginald~A
+  Kaenel, William~W Lang, George~C Maling, David~E Nelson, Charles~M Rader, and
+  Peter~D Welch.
+\newblock What is the fast fourier transform?
+\newblock {\em Proceedings of the IEEE}, 55(10):1664--1674, 1967.
+
+\bibitem{57199}
+I.~{Daubechies}.
+\newblock The wavelet transform, time-frequency localization and signal
+  analysis.
+\newblock {\em IEEE Transactions on Information Theory}, 36(5):961--1005, 1990.
+
+\bibitem{FFTW05}
+Matteo Frigo and Steven~G. Johnson.
+\newblock The design and implementation of {FFTW3}.
+\newblock {\em Proceedings of the IEEE}, 93(2):216--231, 2005.
+\newblock Special issue on ``Program Generation, Optimization, and Platform
+  Adaptation''.
+
+\bibitem{FFTWspeed}
+Steven~G. Johnson.
+\newblock Fft benchmark results.
+\newblock \url{http://www.fftw.org/speed/}, January 2021.
+
+\bibitem{JuliaCon}
+Steven~G. Johnson.
+\newblock Juliacon 2019: Keynote: Professor steven g. johnson.
+\newblock
+  \url{https://www.youtube.com/watch?t=2588&v=mSgXWpvQEHE&feature=youtu.be},
+  January 2021.
+
+\bibitem{JohnsonFr08:burrus}
+Steven~G. Johnson and Matteo Frigo.
+\newblock Implementing {FFT}s in practice.
+\newblock In C.~Sidney Burrus, editor, {\em Fast Fourier Transforms},
+  chapter~11. Connexions, Rice University, Houston TX, September 2008.
+
+\bibitem{khokhriakov2018novel}
+Semyon Khokhriakov, Ravi Reddy, and Alexey Lastovetsky.
+\newblock Novel model-based methods for performance optimization of
+  multithreaded 2d discrete fourier transform on multicore processors.
+\newblock {\em arXiv preprint arXiv:1808.05405}, 2018.
+
+\bibitem{FFTTop10}
+D.N. Rockmore.
+\newblock The fft: An algorithm the whole family can use.
+\newblock {\em Computing in Science and Engineering}, 2:60 -- 64, 02 2000.
+
+\end{thebibliography}

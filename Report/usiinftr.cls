@@ -112,7 +112,7 @@ July\or August\or September\or October\or November\or December\fi}
 \renewcommand{\maketitle}{ 
   \newpage
   \null
-  \noindent\includegraphics[width=\textwidth]{figures/HeaderUSI_FAU}%
+  \noindent\includegraphics[width=\textwidth]{images/HeaderUSI_FAU}%
   \if@coverpage\thispagestyle{empty}\setcounter{page}{0}\fi%
   \vskip2em%
   \noindent\emph{\large\USIINFTR}

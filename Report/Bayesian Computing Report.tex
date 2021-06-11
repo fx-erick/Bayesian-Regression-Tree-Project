@@ -160,7 +160,7 @@ Gibbs sampling can be considered to be a special case of Metropolis-Hastings alg
 Thus for Gibbs sampler, one would only required the conditional distributions in order to approximate the 
 target distribution. As the acceptance rate is always 1, no additional proposal distribution matching is required. However, this method can only be done when the conditional distributions can be sampled from. This is always not the case as for some distributions, the conditional distribution expressions can even be hard to obtain. Furthermore, the acceptance rate of 1 also comes with the cost of the inability to adapt to the cases when the states are highly correlated ( high autocorrelation ). This would also lead to a slower convergence as the high correlation would makes it harder for the algorithm to cover the whole target distribution. As in the classic Metropolis-Hastings algorithm, burn-periods need to be taken into account to ensure convergence of the Markov Chain.
 
-\subsection{Bayesian Added Regression Tree}
+\subsection{Bayesian Additive Regression Tree}
 As previously mentioned, the classical CART is prone to overfitting. This leads to various research into a more Bayesian approach to the decision trees. By applying Bayesian framework, the data can overcome the assumptions about the depth of trees and the shrinkage needed. The Bayesian framework encodes what is typically an algorithmic approach in a likelihood framework to generate coherent uncertainty intervals, which is uncommon for machine learning methods. 
 
  Chipman et al. (2010) proposed a Bayesian "sum-of-trees" model, which is defined by a prior and a likelihood, where each tree is constrained by a regularization prior in order to be a weak learner.  Fitting is achieved by a specialized iterative backfitting MCMC algorithm. This "sum-of-trees" model results to be adaptive and very flexible, where each individual tree describes a different part of the underlying mean function [7]. The "sum-of-trees" model differ from other ensemble methods that fit a linear combination of trees, such as boosting [11], random forests [10], bagging [12]. In bagging and random forest models we do random sampling and stochastic search to create a collection of independent trees, and then combine their results by averaging. It is worth noticing that from various literatures, BART performs better compared to LASSO [8], gradient boosting [9], random forests [10] and neural networks with one hidden layer. 
@@ -184,7 +184,7 @@ We further break down the components of the trees in the $g_j$ function. We defi
 f(x)= \sum_{j=1}^{m} g(x;T_j,M_j)
 \end{equation}
 
-\subsubsection{Regularization Priors}
+\subsubsection{Regularization Priors}\label{prior}
 Bayesian priors are the main features in BART which enforce regularization to the added regression trees, thus ensuring that the trees do not get too significantly big, adapt to the data well while at the same time reduce overfitting. The prior specifications, stated in Chipman et al. (2010), will be described in more detail here.
 
 There are three priors used for regularization, namely:
@@ -208,7 +208,7 @@ Each of the prior are discussed in more details as follows.
 \begin{equation}\pi(M_j \mid T_j) = \prod_i p(\mu_{ij} \mid T_j). \end{equation}
 
 Chipman et al. (2010) recommends a normal distribution for the prior $p( \mu_{ij} \mid T_j) \sim \mathcal{N}(0, \sigma^2_{ \mu })$, whereby $ \sigma_{ \mu } = \frac{0.5}{k \sqrt{m}}$  and k is a hyperparameter to be tuned. The default value of k is taken as k = 2. Thus, this term would ensure that the leaves output get closer to 0 ( the center of the normal distribution ) when the variance term $\sigma_{ \mu}$ gets smaller.
-\item $p(\sigma^2)$, which is the residual variance. This prior is modelled with the conjugate prior inverse chi square distribution, which is none other than a special case of inverse Gamma distribution, as follows.
+\item $p(\sigma^2)$, which is the residual variance. The residual variance helps to impose regularization effect on the whole term such that the model will not overfit to the training data. This prior is modelled with the conjugate prior inverse chi square distribution, which is none other than a special case of inverse Gamma distribution, as follows.
 \begin{equation}p(\sigma^2) \sim \frac{\nu \lambda}{\chi_{\nu}^2}. \end{equation}
 
 With $\lambda$ and $\nu$ as the hyperparameters. More frequently, another hyperparameter is $q$ is chosen in order to determine the hyperparameter $\lambda$ from looking at the prior distribution. While there are more detailed approaches to choosing the hyperparameters, for convenience, Chipman et al. (2010) additionally suggests to use the default values of $\nu = 3$ and $q = 0.90$ to avoid overfitting and yield good results.
@@ -274,247 +274,199 @@ There are three main conditionals that are sampled within each Gibbs iteration.
 Since the prior is taken as the conjugate prior inverse chi-squared distribution, sampling from the posterior can be directly done from a conjugate inverse chi-squared distribution.
 \end{enumerate}
 
+\subsubsection{Recommended Hyperparameters}\label{rec}
+In summary, the recommended hyperparameters for the modelling of the priors are  $\alpha = 0.95, \beta =2, \nu = 3, q = 0.90, and k = 2$. The recommended number of trees is taken as m = 200. To ensure that the MCMC converges, a sufficient number of burn-in iterations needs to be taken into account.
 
+\section{Experiment Methods}
+The experiments will be done in two parts. First experiment is to run a BART model in R and evaluate the results and its performance. This is done by utilizing a prewritten BART library in R called "bartMachine". The second part of the experiment is to compare the performance of the BART model itself with another BART model from another R library called "BART" and, a classic regression tree model, and a random forest model.
 
-\subsection{FFTW}
-FFTW is a library for computing the DFT for inputs of arbitrary size and dimension for real or complex values.
-It was developed at MIT by Matteo Frigo and Steven G. Johnson mainly from 1998 through 2008\cite{JohnsonFr08:burrus}.
-The implementation of the FFT still proves to be competitive with more recent implementations due to its automatic code generation.
-Our goal, in this section is to present the structure of FFTW and its key features.
-In particular we want to address how general challenges of implementing the FFT are solved in this library instead of giving an in-depth description of technical details, which  can be found in \cite{FFTW05}.
+\subsection{Dataset}\label{dataset}
+In this study, the diabetes data which is free and publicly available on Hastie, Tibshirani,
+Wainright website, is being used [24]. The dataset contains observations on 442 patients. The response of interest y is a quantitative measure of disease progression one year after baseline. The 442 diabetes patients were measured on 10 baseline variables:  age, sex, body-mass index, average blood pressure, and six blood serum measurements [24]. Moreover, before the data is being used, they are first standardized to have zero mean and unit L2-norm [24]. The complete data used in our experiments contains 64 feature variables. The first column is the response y, the next 10 columns are the age, sex, BMI, BP and the serum measurements, and the rest of the columns are the squares and products of the original 10. The statistical feature extraction is already performed in our dataset, therefore no further preprocessing is applied to the diabetes dataset. For all the tests, 75\% of the data is taken as the training data with the remaining 25\% as the test data.
 
-\subsubsection{Philosophy and Key Features}
-The authors Frigo and Johnson stress that the most important aims, while developing FFTW, were flexibility and generality, which for them is the key to a widely used library.
-The highest possible performance was then attempted, while sticking to the desired generality.
-According to the authors, FFTW is probably the most flexible DFT library due to the following features\cite{JohnsonFr08:burrus}
-\begin{itemize}
-\item FFTW runs on many architectures and operating systems.
-\item FFTW computes DFTs in $\mathcal{O} (N\log(N)) $ for any input length $N$.
-\item FFTW is not restricted to specific dimensions of transform.
-\item FFTW supports multiple and/or strided DFTs (i.e., non contiguous input data).
-\item FFTW supports DFTs of real and real symmetric or antisymmetric data.
-\end{itemize}
+\begin{table}[h!]
+\centering
+\begin{tabular}{cccccccccccc}
+\hline & AGE & SEX & BMI & BP & \multicolumn{5}{c} { Serum measurements } & Response \\
+Patient & $\mathrm{x}_{1}$ & $\mathrm{x}_{2}$ & $\mathrm{x}_{3}$ & $\mathrm{x}_{4}$ & $\mathrm{x}_{5}$ & $\mathrm{x}_{6}$ & $\mathrm{x}_{7}$ & $\mathrm{x}_{8}$ & $\mathrm{x}_{9}$ & $\mathrm{x}_{10}$ & $\mathrm{y}$ \\
+\hline 1 & 59 & 2 & $32.1$ & 101 & 157 & $93.2$ & 38 & 4 & $4.9$ & 87 & 151 \\
+2 & 48 & 1 & $21.6$ & 87 & 183 & $103.2$ & 70 & 3 & $3.9$ & 69 & 75 \\
+3 & 72 & 2 & $30.5$ & 93 & 156 & $93.6$ & 41 & 4 & $4.7$ & 85 & 141 \\
+4 & 24 & 1 & $25.3$ & 84 & 198 & $131.4$ & 40 & 5 & $4.9$ & 89 & 206 \\
+5 & 50 & 1 & $23.0$ & 101 & 192 & $125.4$ & 52 & 4 & $4.3$ & 80 & 135 \\
+6 & 23 & 1 & $22.6$ & 89 & 139 & $64.8$ & 61 & 2 & $4.2$ & 68 & 97 \\
+$\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
+441 & 36 & 1 & $30.0$ & 95 & 201 & $125.2$ & 42 & 5 & $5.1$ & 85 & 220 \\
+442 & 36 & 1 & $19.6$ & 71 & 250 & $133.2$ & 97 & 3 & $4.6$ & 92 & 57 \\
+\hline
+\end{tabular}
+\end{table}
 
+\subsection{Evaluation Metrics}
+In our regression setting, to measure the performance of our models, R squared and root mean squared error (RMSE) are used. R squared is the proportion of variance explained by the model: 
 
-\subsubsection{Structure}
-FFTW has introduced its specific data structure to express DFT problems, so called I/O tensors.
-I/O tensors can be broken down into I/O dimensions $d = (n, \iota, o)$, where $n$ is a non negative integer representing the length, 
-$\iota$ is an integer describing the input stride, and $o$ is also an integer for the output stride.
-An I/O tensor of rank $\rho = |t|$ can be defined as $t = [ d_1, d_2, ... , d_{\rho} ]$.
-
-A specific DFT-problem is described as
 \begin{equation}
-dft(\textbf{N}, \textbf{V}, \textbf{I}, \textbf{O}),
+R^{2}=1-\frac{\sum_{i=1}^{n}\left(y_{i}-\tilde{y}\right)^{2}}{\sum_{i=1}^{n}\left(y_{i}-\bar{y}\right)^{2}}
 \end{equation}
 
-where $\textbf{N}, \textbf{V}$ are two I/O tensors and $\textbf{I}, \textbf{O}$ pointers to the memory locations of the input and the output, respectively\cite{FFTW05}.
+The RMSE, which is the square root of the variance of the residuals, is given by the formula: 
 
-FFTW gains its generality and performance from code generation.
-For each DFT problem a specific plan is created.
-In the planning stage FFTW searches for an optimal algorithm in terms of execution time for the specific problem and hardware.
-The "planner" explores a space of plans from which the fastest plan is chosen.
-The size of this space highly influences the contradictory goals of short planning time and fast execution.
-Hence, the choice of plans to consider during the planning phase is critical.
-FFTW uses the following categories of plans\cite{FFTW05}
+\begin{equation}
+R M S E=\sqrt{\frac{1}{n} \sum_{i=1}^{n}\left(y_{i}-\hat{y}\right)^{2}}
+\end{equation}
+
+It indicates how close the observed data points are to the model's predicted values. Lower values or RMSE indicate better fit, as RMSE measures how accurately our model predicts the response y.  
+
+\subsection{BART R Libraries}
+There are currently multiple implemented BART libraries in R. The "bayesTree" library was developed by Chipman et al. (2010), sticking to the original implementation as specified in the literature. However, the "bayesTree" library does not support parallelization and detailed model diagnostics. In 2013, Kapelner and Bleich published their implementation of BART in their "bartMachine" library. The "bartMachine" library allows one to easily model a BART model, evaluate in detail statistics of the model fitting against datasets, use multiple computing cores, optimize the hyperparameters used for prior modelling, evaluate convergence of the MCMC and many other statistical tests. This allows us to evaluate the performance and statistics of our BART model in a very detailed manner. Another more recent BART library is "BART", developed by McCulloh and Sparapani in 2017. This "BART" library provides various statistical testings and has higher compability with other libraries in R, which makes it easier for one to implement functionalities and tests for the created BART model. However, this "BART" library only supports multi-threading if MPI is installed in the user's computer. In addition, the "BART" library is still relatively in development and the features and functionalities of this library are still updated frequently up to this day. For this reason, we will use "bartMachine" as the main R library used to model and evaluate our BART model. The BART model implemented in "BART" library will be used solely for comparison. Aside from the functionalities and statistical tests available, each BART libraries also differ slightly in their implementation and interpretation of some prior parameters. As such, it is also worth investigating to see if the default implementations of BART in "bartMachine" and "BART" would return similar performance when trained with the same dataset. The following table summarize the features and differences of each of the three libraries as summarized by Sparapani in a BART Bootcamp lecture slide.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{l|lll} 
+& BayesTree & BART & bartMachine \\
+\hline Author(s) & Chipman & McCulloch & Kapelner \\
+& McCulloch & Sparapani & Bleich \\
+Computer language & $\mathrm{C}++$ & $\mathrm{C}++$ & java \\
+Dependencies & None & Rcpp & rJava \\
+Multi-threaded & No & Yes & Yes \\
+predict function & No & Yes & Yes \\
+Missing data handling & No & No & Yes \\
+Variable selection & No & No & Yes \\
+Variable importance & Yes & Yes & Yes \\
+Tree transition proposals & 3 & 3 & 3 \\
+Partial dependence plots & Yes & No & Yes \\
+Continuous \& binary & Yes & Yes & Yes \\
+Convergence diagnostics & Continuous & All & Continuous \\
+Cross-validation & No & No & Yes \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Random Forest}
+Random forest, championed by Leo Breiman and Adele Cutler, is an ensemble method combining decision trees and bagging [22]. Using the concepts of random feature selection and bagging, first, it generates a collection of trees, and then each of the trees votes for the most popular class [4] (see Figure 1.2). To improve stability and accuracy of the regression models, bagging is being used. Bagging does random sampling with replacement. That is to say that  many different "copies" of the training data are created, then weak classifiers are applied to these "copies", and their result is combined. This will result in reduced variance and low overfitting [23]. 
+	Building the ensembles, for the k-th decision tree, a random vector k with identical distribution for all the trees in the forest is generated [22]. These vectors are independent of all the previous random vectors $i$ where $i = 1,\cdots,k-1$. Next a tree is grown using the training set and the generated random vector [22]. This results in a classifier $h(x,k)$ where $x$ denotes the input vector and $k$ denotes the generated random vector [22]. Moreover, the trees are allowed to grow without pruning, which results in low bias.  Some of the main advantages of RF include[4]:
+
 \begin{itemize}
-\item No-op plans: no work has to be done.
-\item Rank-0 plans: a permutation from the input into the output array.
-\item Rank-1 plans: for ordinary 1D DFTs.
-\item Higher rank plans: for multidimensional DFTs.
-\item Higher vector rank plans: for multiple DFTs.
-\item Indirect plans: for inputs that require data shuffling.
-\item Other plans.
-\end{itemize}
-
-
-Rank-1 plans are of special interest for us as they handle 1D DFTs which were discussed in detail in section \ref{Cooley Tukey section}.
-FFTW breaks them down into two categories.
-Some of the DFTs can be computed directly by highly optimized straight-line C code, so called codelets. 
-These codelets are generated by the special purpose compiler genfft, which was created by the authors dedicated to FFTW.
-For bigger problems FFTW mainly uses variants of the Cooley\textendash Tukey algorithm to break the problem down until it can be solved by a single codelet leading to a direct plan.
-DIT as well as DIF algorithms are implemented.
-
-The compiler genfft is able to generate highly optimized C code of different DFTs from an abstract mathematical description.
-It does optimizations like unrolling to exploit long processor pipelines, pre computing of factors or breaking down complex-number representation into real and imaginary components.
-genfft operates in the four phases creation, simplification, scheduling, and unparsing.
-
-IA representation of the codelet is created in the form of a directed acyclic graph, by using one of the following algorithms: Cooley\textendash Tukey, prime factor, split radix, and Radar.
-In the simplification phase algebraic transformations take place, such as common subexpression elimination.
-During scheduling, gennft searches a schedule such that a C compiler can perform a good register allocation.
-Finally, the schedule is unparsed to C\cite{FFTW05}.
+\item Can work with categorical and continuous features;
+\item Can handle missing and noisy data;
+\item Can perform well even with a large number of features as it selects only a subset of them. 
+\end{itemize} 
 
 
 
-\begin{lstlisting} [caption={Example of FFTW use. First a plan has to be defined, which can be reused\cite{FFTW05}. },captionpos=b, label={lst:example_code}]
-fftw_plan plan;
-fftw_complex in[n], out[n];
+\section{Results and Discussion}
+\subsection{First experiment results : bartMachine}
+After the dataset is split according to 3:1 train:test ratio as specified in \ref{dataset}, the model is constructed with the default bartMachine model constructor. The default values of prior hyperparameters used in bartMachinde models are equal to the values specified in \ref{rec}, with the exception of number of trees which is taken as m = 50 instead of m = 200. As of the official documentation of bartMachine \cite{}, the burn-in Gibbs iterations are 250 and the default post burn-in Gibbs iterations are 1000. 
 
-// plan a 1d forward DFT:
-plan = fftw_plan_dft(n, in, out, FFTW_FORWARD, FFTW_PATIENT);
+\subsubsection{Results}
+By using the default parameters, we obtain an in-sample RSME value of 41.6 and in-sample R-squared value of 0.708 as provided by the output of the bartMachine model diagnostics. This essentially means that the model explains 70.8\% of the variation in the data. The in-sample fitted values against actual values plot is plotted with the command \textit{plot\_y\_vs\_yhat(bart\_machine, credible\_intervals = TRUE)} and the resulting plot is shown in Figure \ref{CI}.
 
-//Initialize [] with some data..
-
-fftw_execute(plan); // compute DFT
-
-//Write new data in []...
-
-fftw_execute(plan); // reuse plan
-\end{lstlisting}
-
-The user of FFTW can specify the problem over an interface without dealing with the internal complexity of FFTW.
-The library provides different interfaces for different degrees of generality.
-An example of how to use FFTW is given in Listing \ref{lst:example_code}.
-After initializing arrays for input and output, a plan has to be created, which needs the pointers to the input and output arrays as well as their lengths. 
-The user also specifies whether a forward (-1) or backward (1) transform should be performed.
-Furthermore, a planner flag  ("FFTW\textunderscore PATIENT" in Listing \ref{lst:example_code}) is defined which allows a trade-off between planning speed versus optimality. The effect is depicted in Figure \ref{Planner flags}.
-The general shape of the curve can be explained as follows.
-For small problem sizes the overhead created by the call of a FFTW routine prevents good performance.
-For large problems the performance of all routines drops as well reflecting the cache hierachy of the machine\cite{FFTW05}. The three main operating modes are
-\begin{itemize}
-\item patient ("FFTW\textunderscore PATIENT"): The planner tries all combinations of possible plans for optimal execution performance,
-\item impatient ("FFTW\textunderscore MEASURE"): The planner searches a smaller space of plans and reduces the planning time,
-\item estimate ("FFTW\textunderscore ESTIMATE"): No measurements are performed. Instead the planner minimizes a cost function: number of flops + "extraneous" loads/stores for minimal planning time.
-\end{itemize}
-
-
-\begin{figure}[h] 
-\centering
-\includegraphics[width=0.7\textwidth]{figures/Plans_Performance.png}
-\caption{Effects of planner flags in FFTW on the execution performance for double-precision 1D complex DFTs, power-of-two sizes, on a 2 GHz PowerPC 970 (G5)\cite{FFTW05}.}
-\label{Planner flags}
-\end{figure}
-
-\subsubsection{Memory Hierachy: Breadth-First versus Depth-First}
-A major challenge when implementing the Cooley\textendash Tukey algorithm is that the input $\textbf{x}$ is discontiguous for a contiguous output $\textbf{X}$ or vice versa.
-As a consequence discontiguous memory access and data reordering hinders efficient use of hierarchical  memory architectures.
-The execution order is therefore a non obvious aspect of an efficient FFT implementation.
-
-One order distinction among others can be made between recursion and iteration.
-As shown in Figure \ref{breadth_first} the Cooley\textendash Tukey algorithm can be represented as a tree of smaller and smaller DFTs.
-The tree can be traversed either breadth or depth first.
-The traditional Cooley\textendash Tukey algorithm as presented in section \ref{Cooley Tukey section} uses the breadth-first approach.
-When dividing the initial DFT of length 8, the traditional approach comes up with both representations of length-4 DFTs.
-For large inputs this can mean that parts of generated data for the sub-DFT is already out of cache, leading to cache misses and therefore additional time for reloading data.
-In contrast the recursive depth-first approach goes directly down until a base case is reached.
-Hence, loaded data in the cache are directly used, leading to fewer cache misses.
-
-In this context the choice of radix is also relevant.
-A radix-2 algorithm only halves the length of the input vector.
-Hence, the way down to a base case incorporates significantly more steps than for an algorithm of higher radix.
-Due to the low rate of reducing necessary data for the computation algorithms of small radices can also suffer from cache misses.
-FFTW encompasses a breadth-first as well as depth-first approaches. However, it favors the recursive approach. Even though there is no fixed radix-length, 32 is typical \cite{JohnsonFr08:burrus}.
-
-\begin{figure}[h] 
-\centering
-\includegraphics[width=0.7\textwidth]{figures/beadth_first.png}
-\caption{Traditional iterative breadth-first versus recursive depth-first orderung for radix-2 FFT of size 8\cite{JohnsonFr08:burrus}. }
-\label{breadth_first}
-\end{figure}
-
-\subsubsection{Performance and Comparison with Intel MKL}
-FFTW is a library for scientific computing, performance is therefore an important aspect.
-The authors benchmarked their implementation against most other implementations of the FFT \cite{JuliaCon}.
-The results are published on the FFTW homepage \cite{FFTWspeed}.
-However, these benchmark date back to 2003 and are not considered here.
-The most competitive implementation today is Intel's Math Kernel Library (Intel MKL) \cite{khokhriakov2018novel},\cite{JuliaCon}.
-
-In \cite{khokhriakov2018novel} the authors compare FFTW-2.15, FFTW-3.3.7, and Intel MKL FFT for 2D DFTs of complex power-of-two inputs using 36 threads.
-In this setting FFTW-2.1.5 showed better average speed than FFTW-3.3.7.
-The authors explain it by a less architecture-specific approach in FFTW-2.1.5 compared to FFTW-3.3.7. Figure \ref{MKL_speed} shows the comparison between FFTW-2.1.5 and Intel MKL FFT3.
-Intel's library shows higher peak performance as well as higher average speed.
-However, it has significantly higher variation in speed, because the library is optimized to specific DFT-lengths.
-FFTW-2.1.5. shows steadier performance and is faster in 162 out of 1000 problem sizes\cite{khokhriakov2018novel}.
-For non-power-of-two, FFTW still outperforms Intel MKL according to Steven G. Johnson in a talk at the JuliaCon 2019 \cite{JuliaCon}.
-
-\begin{figure}[h] 
-\centering
-\includegraphics[width=0.7\textwidth]{figures/MKL_speed.png}
-\caption{Speed functions of FFTW-2.1.5 and Intel MKL FFT3 and average speeds\cite{khokhriakov2018novel}. }
-\label{MKL_speed}
-\end{figure}
-
-The results of the performance benchmark are consistent with the initial goals of FFTW, as the authors prioritized generality, which also applies to the length of the DFTs over specific optimization.
-
-\subsection{Limitations and Outlook}
-Although the FFT provides detailed information about the frequency contents of a given signal by calculating the DFT, it cannot detect when a certain frequency occurs.
-There are many signals of interest that are not stationary in frequency.
-A melody played by a single instrument could be (in a simplified way) described as the evolution in time of the frequency characterizing  the note.
-The classical FFT cannot provide this information\cite{brunton_kutz_2019}, \cite{57199}. 
-
-In order to gain information of the time resolution of frequency, the DFT is performed on a specific window, which iterates over the time domain.
-Hence, a DFT of each window is created, giving frequency information in the specific time frame.
-This is a so called short-time Fourier transform (STFT).
-Gabor proposed to use Gaussian window functions.
-Figure \ref{Gabor_transform} shows how a Gaussian function centered at $\tau$  translated over the time signal to take a DFT in the domain $[\tau -a, \tau +a]$.
-The choice of an appropriate window function is essential for the properties of the STFT and the subject of deep mathematical discussions\cite{57199}.  
-
-
-\begin{figure}[h] 
-\centering
-\includegraphics[width=0.7\textwidth]{figures/Gabor.png}
-\caption{Illustration of the Gabor transform: A Gaussian window function translates over a time signal to compute the STFT \cite{brunton_kutz_2019}.}
-\label{Gabor_transform}
-\end{figure}
-
-The visualization of the STFT is the spectrogram.
-It is often plotted in 2D and the colors indicate the intensities of the frequencies at a specific time.
-An example for an audio signal is given in Figure \ref{Spectrogram}.
-
-\begin{figure}[h] 
-\centering
-\includegraphics[width=0.7\textwidth]{figures/spectrogram.png}
-\caption{Spectrogram of an audio signal where the colors represent certain frequency intensities in time\cite{Spectrogram}. }
-\label{Spectrogram}
-\end{figure}
-
-The size of the interval $[\tau -a, \tau +a]$ in Figure \ref{Gabor_transform} determines the time resolution of the STFT.
-However, the smaller the interval chosen, the lesser information it contains about the frequencies.
-This is the fundamental uncertainty principle: It is impossible to attain both high time and frequency resolution.
-The Fourier transform is perfectly resolved in frequency without any information about time.
-The time series in contrast is perfectly resolved in time without any frequency information.
-The spectrogram resolves both but with lower resolution in each domain.
-Basically, the product of information in frequency and information in time is bounded by a constant\cite{brunton_kutz_2019}.
-
-The most important approach to get a better trade-off between time and frequency resolution are wavelet transforms.
-Wavelets transforms allow multiresolution analysis of signals.
-Different time and frequency fidelities can be used for different frequency bands as depicted in Figure \ref{Uncertainty}(d).
-Typically higher time resolutions are also used for higher frequencies.
-Wavelet transforms are, in particular, useful for multiscale processes, which can be found in epidemiology, seismology, or turbulence.
-Wavelets are furthermore the leading approach for image compression\cite{brunton_kutz_2019},\cite{57199}.
 
 \begin{figure}[h!] 
 \centering
-\includegraphics[width=0.7\textwidth]{figures/Uncertainty.png}
-\caption{According to the uncertainty principle resolution in time limits resolution in frequency and vice versa.
-Multiresolution approaches resolve high frequency bands also high in time\cite{brunton_kutz_2019}.  }
-\label{Uncertainty}
+\includegraphics[width=0.6\textwidth]{images/CI.png}
+\caption{The plot of in-sample fitted values against actual values show that 74.62\% of the dataset actually have their ground truths lie within the 95\% credible interval .}
+\label{CI}
 \end{figure}
 
+The plot shows that in overall, most of the predicted values lie around the diagonal of the plots. While the credible interval is set to 95\%, only 74.62\% of the dataset actually have their ground truths lie within the 95\% credible interval of the posterior distribution. This is due to the fact that the credible interval does not take into account of the regularization uncertainty term as discussed in the section \ref{prior}. The author of bartMachine additionally implemented a prediction interval term which takes the regularization uncertainty term into account, giving larger intervals for each dataset. This is performed with the command \textit{plot\_y\_vs\_yhat(bart\_machine, prediction\_intervals = TRUE)} and the resulting plot is shown in Figure \ref{PI}.
+
+\begin{figure}[h!] 
+\centering
+\includegraphics[width=0.6\textwidth]{images/PI.png}
+\caption{The plot of in-sample fitted values against actual values show that 99.7\% of the dataset actually have their ground truths lie within the 95\% prediction interval .}
+\label{PI}
+\end{figure}
+
+From the figure, we can see that the with the regularization error considered, 99.7\% of the dataset actually have their ground truths lie within the 95\% prediction interval of the posterior distribution. Thus, we can see that the model performs reasonably well with the training dataset. Additionally, the 10-fold cross validation RSME of the model is observed to be 56.9, while the 10-fold cross validation pseudo R-squared of the model is observed to be 0.45. These are obtained by the command \textit{k\_fold\_cv(x\_train, y\_train, k\_folds = 10)}. The out-of-sample performance of our BART model is also tested against the test dataset with the command \textit{oos\_perf = bart\_predict\_for\_test\_data(bart\_machine, x\_test, y\_test)}. We obtain an out-of-sample test RMSE value of 56.1. This is about 33\% higher than the in-sample-RMSE values, which also mean that the bartMachine model overfits slightly to the train dataset with the current default hyperparameter values. We will investigate if altering the prior hyperparameters and specifications might result to less overfitted predictions in the hyperparameter optimization section.
+
+
+The command \textit{rmse\_by\_num\_trees(bart\_machine, num\_replicates = 20)} allows us to plot the RSME of the models against the number of trees used, whereby the average RSME of the 20 replicates of the models are used for the evaluation. The plot is shown in Figure \ref{RMSEtrees}.
+
+\begin{figure}[h!] 
+\centering
+\includegraphics[width=0.6\textwidth]{images/RMSEtrees.png}
+\caption{The plot of out-of-sample RMSE by the number of trees for our bartMachine model. We can then deduce which number of trees results to the best out-of-sample RMSE.}
+\label{RMSEtrees}
+\end{figure}
+
+While the out-of-sample RMSE generally decreases with increasing number of trees, we can observe that the RMSE actually increases after reaching a local minimal value at m = 40 trees, reaching a maximum RMSE value at m = 100 trees and decreasing again up to a minimum value at m = 200 trees. Thus, for our bartMachine model with our current dataset, larger amount of trees do not result to a significantly more generalizable BART model. The overfitting problem is not resolved as well as the out-of-sample RMSE values do not decrease towards the value of our in-sample RMSE value no matter how many trees are used for the modelling. One may prefer to have a smaller amount of trees for similar performance with smaller model sizes and less complexities. The number of trees is one of the hyperparameters that can be tuned to obtain the most optimal performing BART model, which will be discussed in a later section.
+
+\subsubsection{Assumption checking}
+The bartMachine provides two tests to check the assumptions that one normally use for regression, namely the test of normality of the residuals ( Shapiro-Wilks p-value test ) and the residual variance test ( Heteroskedasticity test ). This is performed by running the command \textit{check\_bart\_error\_assumptions(bart\_machine)}. The resulting plans are shown in figure \ref{ErrorAss}.
+
+\begin{figure}[h!] 
+\centering
+\includegraphics[width=0.7\textwidth]{images/ErrorAss.png}
+\caption{The Q-Q plot and heteroskedasticity plot of the residuals. Both plots show that the residuals follow a normal distribution}
+\label{ErrorAss}
+\end{figure}
+
+From the p-value of 0.167 , the null-hypothesis that the residual follows a normal distribution is not rejeceted, thus we can conclude that the residual indeed follows a normal distribution. This is to be expected as the training sample size n = 331. This is also confirmed visually from the QQ plot, whereby the points roughly lie on the diagonal of the plot. The heteroskedaticity plot also confirms that the residuals are roughly equal across the range of dataset values. Thus we can also observe that the assumptions for our BART model is fulfilled.
+
+\subsubsection{MCMC convergence analysis}
+The bartMachine also allows us to monitor the MCMC convergence diagnostics through both the trace of the residual value $\sigma^2$ and the trees parameters across iterations. This is performed by the command \textit{plot\_convergence\_diagnostics(bart\_machine)}. The result of the MCMC convergence diagnostics is shown in Figure \ref{MCMCConv}.
+
+\begin{figure}[h!] 
+\centering
+\includegraphics[width=\textwidth]{images/MCMC_convergence.png}
+\caption{The MCMC convergence diagnostic plots of (top left) the residual term $\sigma^2$ over iterations, (top right) the Metropolis-Hastings tree acceptance rate over iterations, (bottom left) the number of leaves per trees over iterations, and (bottom right) the depth of trees over iterations.}
+\label{MCMCConv}
+\end{figure}
+
+There are 4 plots produced by the convergence diagnostic command. The first plot on the top left is the plot of residual term $\sigma^2$ over post burn-in iterations. While the $\sigma^2$ values fluctuated slightly, the fluctuations mostly lie within the 95\% credible interval of the variance of the residual term. Thus, from this plot we can observe that the chain explores the different parts of the sample space of residuals multiple times. The second plot on the top right shows the acceptance rate of the the Metropolis-Hastings part in each Gibbs iteration. The grey part on the left half of the figure indicates the burn-in period, while the right half indicates the post burn-in period. Interestingly, the acceptance rate does not differ significantly during burn-in period and after burn-in period. The third plot in the bottom left is the plot of the trace of the number of nodes per tree over post burn-in iterations. The blue line indicates the average number of nodes and leaves per tree, while the upper bound and lower bound values are indicated with black lines. The number of nodes and leaves does not differ significantly over the post burn-in iterations. Lastly, the plot in the bottom right is the plot of the depth of the trees over post burn-in iterations. Similar to the previous plot, the blue line indicates the average depth of the trees with the upper bound and lower bond values indicated with black lines. Likewise, the depth of the trees do not vary significantly over post burn-in iterations. Since these four plots show the relative stability of the parameters of the model, we can conclude that the chain has indeed converged to the posterior distributions after burn-in given the prior models proposed.
+
+\subsubsection{Hyperparameter optimization}
+The bartMachine library also has a built-in hyperparameter optimization functionality, which allows one to easily optimize the hyperparemeters used for the prior modelling via cross-validations. This is done with the command \textit{bart\_machine\_cv <- bartMachineCV(x\_train, y\_train)}, whereby different combinations of the parameters $k, \nu, q,$ and $m$ are applied and the cross-validation errors are evaluated. The winner sets of hyperparameters which result to the lowest cross-validation error values are then applied to build a new optimized bartMachine model. For our current BART model, the winning hyperparameter combination is  $k = 2, \nu = 0.9, q = 3,$ and $m = 50$, which is thus the same hyperparameter combination used in our default bartMachine model. For our dataset, it is thus not necessary to optimize the hyperparameters further. The in-sample, test and cross validation RSME and pseudo R-square values of the optimized model are summarized in the following table.
+
+\begin{table}[h!]
+\centering
+\caption{Table of RMSE and Pseudo $R^2$ values of the bartMachine BART model.}
+\begin{tabular}{|c|c|c|c|}
+\hline & In-sample & 10-fold CV & Test \\
+\hline RMSE & 41.6 & 56.9 & 56.1 \\
+\hline Pseudo $R^2$ & 0.708 & 0.45 & - \\ \hline
+\end{tabular}
+\label{RMSEBART}
+\end{table}
+
+\subsubsection{Variable Importance and Partial Dependence}
+Since there are a total of 64 covariates in the dataset, we would like to investigate which variables are considered more important for the prediction of our BART model. This can be performed by the command \textit{investigate\_var\_importance(bart\_machine, num\_replicates\_for\_avg = 20)}. The plot is shown in Figure \ref{}.
+
+\begin{figure}[h!] 
+\centering
+\includegraphics[width=\textwidth]{images/VarImp.png}
+\caption{Variable importance plot of the bartMachine model.}
+\label{VarImp}
+\end{figure}
+
+According to the variable importance plot, the covariates BMI and map ( mean arterial blood pressure ) are the most significant covariates for our bartMachine model. The variable importance plot also shows that out of the 64 covariates ,only the five most important covariates are of significantly higher importances. We may want to investigate the partial dependence plots of the covariates in order to investiage the effect of each covariates to the BART model output in more detail. This can also be done with the bartMachine library through the command \textit{pd\_plot(bart\_machine\_cv, j = "bmi")} for example. The partial dependence plots of the two covariates with the highest importance values are shown in the following figures.
+
+\begin{figure}[h!] 
+\centering
+\includegraphics[width=0.7\textwidth]{images/PD_BMI.png}
+\caption{Partial dependence plot of the BMI covariate.}
+\label{PDBMI}
+\end{figure}
+
+\begin{figure}[h!] 
+\centering
+\includegraphics[width=0.7\textwidth]{images/PD_map.png}
+\caption{Partial dependence plot of the map covariate.}
+\label{PDmap}
+\end{figure}
+
+\subsection{Second experiment results : Performance Comparison}
+
+\subsubsection{Comparison with BART library}
+\subsubsection{Classic CART Results}
+\subsubsection{Random Forest Results}
+
+\section{Limitations and Outlook}
+
+
 \section{Conclusion}
-The FFT is considered to be one of the most important algorithms of the 20th century \cite{FFTTop10},\cite{brunton_kutz_2019}.
-Its significance can be grasped, by the vast variety of its applications: signal processing, data analysis, communication, data compression, and many more.
 
-In its core the FFT allows us to compute the DFT very efficiently.
-Thus, it enables a fast transition from the time into the frequency domain and vice versa. Necessary computations can be reduced from $\mathcal{O}(N^2)$ to $\mathcal{O}(N \log(N))$. The most important and widely used FFT algorithm is the Cooley\textendash Tukey algorithm.
-It splits the initial problem into smaller DFTs, which are reconnected by twiddle factors.
-The computational savings in this approach come from intrinsic symmetries in the DFT that allow the reuse of computations.
-Important classifications of the Cooley\textendash Tukey algorithm are whether the initial data are split in the time or frequency domain (DIT versus DIF) and in how many sub-DFTs the intial problem is split "radix-X".
-Furthermore the problem can be recursively solved depth-first or iteratively breadth-first.
-
-Beside the Cooley\textendash Tukey algorithm, there are other FFT-algorithms of importance.
-Many are tailored for special problems.
-The fast Hatley transform specializes in real input data and leads to more efficient computations than the Cooley\textendash Tukey algorithm.
-Rader's algorithm allows the computation of DFTs of prime size, by using mathematical convolutions.
-
-In addition to a mathematically efficient algorithm, good implementations are needed.
-FFTW is one of the leading libraries implementing the FFT.
-It is designed to be very flexible in regard to the DFT that is to be solved.
-As it used code generation and performance measurements to find an optimal "plan" for each architecture, FFTW is also competitive in terms of performance.
-
-The classical FFT does not give information about the change of frequency in time.
-However, splitting the initial time domain and performing separate FFTs leads to the STFT, which allows us to render frequencies dependent on time.
-The uncertainty principle limits the amount of information that can be gained from a signal.
-Hence better resolution in time leads directly to worse resolution in frequency and vice versa.
 
 
 \bibliographystyle{plain}

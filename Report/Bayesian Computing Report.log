@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.3.10)  8 JUN 2021 02:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.3.10)  11 JUN 2021 03:14
 entering extended mode
 **"./Bayesian Computing Report.tex"
 ("Bayesian Computing Report.tex"
@@ -785,12 +785,12 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 \c@lstlisting=\count315
 
 
-pdfTeX warning: pdflatex (file ./figures/HeaderUSI_FAU.pdf): PDF inclusion: fou
-nd PDF version <1.6>, but at most version <1.5> allowed
-<figures/HeaderUSI_FAU.pdf, id=71, 625.96059pt x 85.3579pt>
-File: figures/HeaderUSI_FAU.pdf Graphic file (type pdf)
-<use figures/HeaderUSI_FAU.pdf>
-Package pdftex.def Info: figures/HeaderUSI_FAU.pdf  used on input line 31.
+pdfTeX warning: pdflatex (file ./images/HeaderUSI_FAU.pdf): PDF inclusion: foun
+d PDF version <1.6>, but at most version <1.5> allowed
+<images/HeaderUSI_FAU.pdf, id=119, 625.96059pt x 85.3579pt>
+File: images/HeaderUSI_FAU.pdf Graphic file (type pdf)
+<use images/HeaderUSI_FAU.pdf>
+Package pdftex.def Info: images/HeaderUSI_FAU.pdf  used on input line 31.
 (pdftex.def)             Requested size: 448.1309pt x 61.10988pt.
 LaTeX Font Info:    Font shape `T1/mdput/m/it' will be
 (Font)              scaled to size 9.40002pt on input line 31.
@@ -959,17 +959,10 @@ LaTeX Font Info:    Font shape `MDB/mdput/m/n' will be
 (Font)              scaled to size 9.40002pt on input line 41.
 LaTeX Font Info:    Font shape `MDB/mdput/m/n' will be
 (Font)              scaled to size 6.58002pt on input line 41.
-LaTeX Font Info:    Font shape `T1/mdput/b/n' will be
-(Font)              scaled to size 9.40002pt on input line 41.
+ [1
 
-
-LaTeX Warning: Citation `cochran1967fast' on page 1 undefined on input line 41.
-
-
-[1
-
-{C:/Users/erickfs/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./figures/Hea
-derUSI_FAU.pdf>]
+{C:/Users/erickfs/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./images/Head
+erUSI_FAU.pdf>]
 LaTeX Font Info:    Trying to load font information for TS1+mdput on input line
  53.
 
@@ -982,6 +975,8 @@ LaTeX Font Info:    Font shape `TS1/mdput/m/n' will be
  [2] [3]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 112.
+LaTeX Font Info:    Font shape `T1/mdput/b/n' will be
+(Font)              scaled to size 9.40002pt on input line 112.
 LaTeX Font Info:    Font shape `T1/mdput/m/fsc' will be
 (Font)              scaled to size 9.40002pt on input line 115.
 LaTeX Font Info:    Font shape `T1/mdput/m/n' will be
@@ -1041,195 +1036,101 @@ Overfull \hbox (8.42348pt too wide) in paragraph at lines 267--268
 pos-sible steps ( GROW, PRUNE, CHANGE,
  []
 
-[7]
-
-LaTeX Warning: Citation `JohnsonFr08:burrus' on page 8 undefined on input line 
-281.
-
-
-LaTeX Warning: Citation `FFTW05' on page 8 undefined on input line 284.
-
-
-LaTeX Warning: Citation `JohnsonFr08:burrus' on page 8 undefined on input line 
-289.
-
-
-LaTeX Warning: Citation `FFTW05' on page 8 undefined on input line 310.
-
-
-LaTeX Warning: Citation `FFTW05' on page 8 undefined on input line 318.
-
-[8]
-
-LaTeX Warning: Reference `Cooley Tukey section' on page 9 undefined on input li
-ne 330.
-
-
-LaTeX Warning: Citation `FFTW05' on page 9 undefined on input line 344.
-
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 348.
-LaTeX Font Info:    Font shape `T1/mdput/b/n' will be
-(Font)              scaled to size 8.46002pt on input line 362.
-
-LaTeX Warning: Citation `FFTW05' on page 9 undefined on input line 362.
-
-
-LaTeX Warning: Citation `FFTW05' on page 9 undefined on input line 362.
-
-
-LaTeX Warning: Citation `FFTW05' on page 9 undefined on input line 372.
-
-[9]
-<figures/Plans_Performance.png, id=191, 851.5815pt x 723.9045pt>
-File: figures/Plans_Performance.png Graphic file (type png)
-<use figures/Plans_Performance.png>
-Package pdftex.def Info: figures/Plans_Performance.png  used on input line 382.
-
-(pdftex.def)             Requested size: 313.69026pt x 266.65855pt.
-
-
-LaTeX Warning: Citation `FFTW05' on page 10 undefined on input line 383.
-
-
-LaTeX Warning: Citation `FFTW05' on page 10 undefined on input line 383.
-
-
-LaTeX Warning: Reference `Cooley Tukey section' on page 10 undefined on input l
-ine 395.
-
-
-LaTeX Warning: Citation `JohnsonFr08:burrus' on page 10 undefined on input line
- 405.
-
-<figures/beadth_first.png, id=194, 775.2162pt x 293.4162pt>
-File: figures/beadth_first.png Graphic file (type png)
-<use figures/beadth_first.png>
-Package pdftex.def Info: figures/beadth_first.png  used on input line 409.
-(pdftex.def)             Requested size: 313.69026pt x 118.7344pt.
-
-LaTeX Warning: Citation `JohnsonFr08:burrus' on page 10 undefined on input line
- 410.
-
-
-LaTeX Warning: Citation `JohnsonFr08:burrus' on page 10 undefined on input line
- 410.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: Citation `JuliaCon' on page 10 undefined on input line 416.
-
-
-LaTeX Warning: Citation `FFTWspeed' on page 10 undefined on input line 417.
-
-
-LaTeX Warning: Citation `khokhriakov2018novel' on page 10 undefined on input li
-ne 419.
-
-
-LaTeX Warning: Citation `JuliaCon' on page 10 undefined on input line 419.
-
-
-LaTeX Warning: Citation `khokhriakov2018novel' on page 10 undefined on input li
-ne 421.
-
-
-LaTeX Warning: Citation `khokhriakov2018novel' on page 10 undefined on input li
-ne 426.
-
-
-LaTeX Warning: Citation `JuliaCon' on page 10 undefined on input line 427.
-
-[10 <./figures/Plans_Performance.png>]
-<figures/MKL_speed.png, id=202, 970.22475pt x 613.69275pt>
-File: figures/MKL_speed.png Graphic file (type png)
-<use figures/MKL_speed.png>
-Package pdftex.def Info: figures/MKL_speed.png  used on input line 431.
-(pdftex.def)             Requested size: 313.69026pt x 198.41771pt.
-
-
-LaTeX Warning: Citation `khokhriakov2018novel' on page 11 undefined on input li
-ne 432.
-
-
-LaTeX Warning: Citation `khokhriakov2018novel' on page 11 undefined on input li
-ne 432.
-
-
-LaTeX Warning: Citation `brunton_kutz_2019' on page 11 undefined on input line 
-442.
-
-
-LaTeX Warning: Citation `57199' on page 11 undefined on input line 442.
-
-
-LaTeX Warning: Citation `57199' on page 11 undefined on input line 449.
-
-<figures/Gabor.png, id=204, 1196.0685pt x 525.162pt>
-File: figures/Gabor.png Graphic file (type png)
-<use figures/Gabor.png>
-Package pdftex.def Info: figures/Gabor.png  used on input line 454.
-(pdftex.def)             Requested size: 313.69026pt x 137.73288pt.
-
-LaTeX Warning: Citation `brunton_kutz_2019' on page 11 undefined on input line 
-455.
-
-
-LaTeX Warning: Citation `brunton_kutz_2019' on page 11 undefined on input line 
-455.
-
-[11 <./figures/beadth_first.png> <./figures/MKL_speed.png>]
-<figures/spectrogram.png, id=214, 1003.75pt x 574.145pt>
-File: figures/spectrogram.png Graphic file (type png)
-<use figures/spectrogram.png>
-Package pdftex.def Info: figures/spectrogram.png  used on input line 465.
-(pdftex.def)             Requested size: 313.69026pt x 179.42863pt.
-
-
-LaTeX Warning: Citation `Spectrogram' on page 12 undefined on input line 466.
-
-
-LaTeX Warning: Citation `Spectrogram' on page 12 undefined on input line 466.
-
-
-LaTeX Warning: Citation `brunton_kutz_2019' on page 12 undefined on input line 
-476.
-
-
-LaTeX Warning: Citation `brunton_kutz_2019' on page 12 undefined on input line 
-483.
-
-
-LaTeX Warning: Citation `57199' on page 12 undefined on input line 483.
-
-<figures/Uncertainty.png, id=217, 698.61pt x 612.48825pt>
-File: figures/Uncertainty.png Graphic file (type png)
-<use figures/Uncertainty.png>
-Package pdftex.def Info: figures/Uncertainty.png  used on input line 487.
-(pdftex.def)             Requested size: 313.69026pt x 275.01903pt.
-
-LaTeX Warning: Citation `brunton_kutz_2019' on page 12 undefined on input line 
-489.
-
-
-LaTeX Warning: Citation `brunton_kutz_2019' on page 12 undefined on input line 
-489.
+[7] [8] [9]
+<images/CI.png, id=229, 606.265pt x 606.265pt>
+File: images/CI.png Graphic file (type png)
+<use images/CI.png>
+Package pdftex.def Info: images/CI.png  used on input line 367.
+(pdftex.def)             Requested size: 268.88127pt x 268.88512pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+<images/PI.png, id=232, 606.265pt x 606.265pt>
+File: images/PI.png Graphic file (type png)
+<use images/PI.png>
+Package pdftex.def Info: images/PI.png  used on input line 376.
+(pdftex.def)             Requested size: 268.88127pt x 268.88512pt.
 
-LaTeX Warning: Citation `FFTTop10' on page 12 undefined on input line 494.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/RMSEtrees.png, id=234, 389.20406pt x 342.5297pt>
+File: images/RMSEtrees.png Graphic file (type png)
+<use images/RMSEtrees.png>
+Package pdftex.def Info: images/RMSEtrees.png  used on input line 388.
+(pdftex.def)             Requested size: 268.88127pt x 236.64365pt.
+[10]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[11 <./images/CI.png> <./images/PI.png>]
+<images/ErrorAss.png, id=250, 699.61375pt x 606.265pt>
+File: images/ErrorAss.png Graphic file (type png)
+<use images/ErrorAss.png>
+Package pdftex.def Info: images/ErrorAss.png  used on input line 400.
+(pdftex.def)             Requested size: 313.69026pt x 271.83614pt.
 
 
-LaTeX Warning: Citation `brunton_kutz_2019' on page 12 undefined on input line 
-494.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[12 <./figures/Gabor.png> <./figures/spectrogram.png (PNG copy)>]
-No file "Bayesian Computing Report".bbl.
-[13 <./figures/Uncertainty.png>] ("Bayesian Computing Report.aux")
+<images/MCMC_convergence.png, id=252, 722.7pt x 371.13657pt>
+File: images/MCMC_convergence.png Graphic file (type png)
+<use images/MCMC_convergence.png>
+Package pdftex.def Info: images/MCMC_convergence.png  used on input line 412.
+(pdftex.def)             Requested size: 448.1309pt x 230.13626pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12 <./images/RMSEtrees.png>] [13 <./images/ErrorAss.png> <./images/MCMC_conver
+gence.png>]
+
+LaTeX Warning: Reference `' on page 14 undefined on input line 434.
+
+<images/VarImp.png, id=267, 722.7pt x 371.13657pt>
+File: images/VarImp.png Graphic file (type png)
+<use images/VarImp.png>
+Package pdftex.def Info: images/VarImp.png  used on input line 438.
+(pdftex.def)             Requested size: 448.1309pt x 230.13626pt.
+[14 <./images/VarImp.png>]
+<images/PD_BMI.png, id=275, 408.02437pt x 356.0803pt>
+File: images/PD_BMI.png Graphic file (type png)
+<use images/PD_BMI.png>
+Package pdftex.def Info: images/PD_BMI.png  used on input line 447.
+(pdftex.def)             Requested size: 313.69026pt x 273.76974pt.
+<images/PD_map.png, id=276, 408.02437pt x 356.0803pt>
+File: images/PD_map.png Graphic file (type png)
+<use images/PD_map.png>
+Package pdftex.def Info: images/PD_map.png  used on input line 454.
+(pdftex.def)             Requested size: 313.69026pt x 273.76974pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+("Bayesian Computing Report.bbl"
+LaTeX Font Info:    Font shape `T1/mdput/m/it' will be
+(Font)              scaled to size 8.46002pt on input line 5.
+LaTeX Font Info:    Font shape `T1/cmtt/m/n' will be
+(Font)              scaled to size 9.63007pt on input line 14.
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--16
+[]\T1/mdput/m/n/9 Kartik Chaud-hary.  Un-der-stand-ing au-dio data, four-ier tr
+ans-form, fft and spec-tro-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--16
+\T1/mdput/m/n/9 gram fea-tures for a speech re-cog-ni-tion sys-tem.  [][]$\T1/c
+mtt/m/n/9 https : / / towardsdatascience . com /
+ []
+
+
+Overfull \hbox (53.24847pt too wide) in paragraph at lines 10--16
+\T1/cmtt/m/n/9 understanding-[]audio-[]data-[]fourier-[]transform-[]fft-[]spect
+rogram-[]and-[]speech-[]recognition-[]a4072d228520$[][]\T1/mdput/m/n/9 ,
+ []
+
+[15 <./images/PD_BMI.png>]) [16 <./images/PD_map.png>]
+("Bayesian Computing Report.aux")
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1238,35 +1139,37 @@ LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `"Bayesian Computing Report".out' has not cha
 nged.
-(rerunfilecheck)             Checksum: 1F1FD48B65AD2666B82636329899D068;3125.
+(rerunfilecheck)             Checksum: 696814D962D3040BF1203EA28DBB0902;5244.
  ) 
 Here is how much of TeX's memory you used:
- 15805 strings out of 479618
- 236435 string characters out of 2864076
- 538199 words of memory out of 3000000
- 32584 multiletter control sequences out of 15000+200000
- 586999 words of font info for 159 fonts, out of 3000000 for 9000
+ 15611 strings out of 479618
+ 235335 string characters out of 2864076
+ 538976 words of memory out of 3000000
+ 32364 multiletter control sequences out of 15000+200000
+ 588068 words of font info for 164 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 86i,9n,131p,1390b,1052s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/erickfs/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/ly1/texnansi.
-enc} <C:\Users\erickfs\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
-ecrm1000.pk> <C:\Users\erickfs\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecrm1200.pk> <C:\Users\erickfs\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
-appen/ec/dpi600\ecrm0900.pk><C:/Users/erickfs/AppData/Local/Programs/MiKTeX/fon
-ts/type1/mathdesign/mdput/md-utbi7m.pfb><C:/Users/erickfs/AppData/Local/Program
-s/MiKTeX/fonts/type1/mathdesign/mdput/md-utr7t.pfb><C:/Users/erickfs/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/mathdesign/mdput/md-utr7v.pfb><C:/Users/erickfs
-/AppData/Local/Programs/MiKTeX/fonts/type1/mathdesign/mdput/md-utr7y.pfb><C:/Us
-ers/erickfs/AppData/Local/Programs/MiKTeX/fonts/type1/mathdesign/mdput/md-utr8t
-.pfb><C:/Users/erickfs/AppData/Local/Programs/MiKTeX/fonts/type1/mathdesign/mdp
-ut/md-utri7m.pfb><C:/Users/erickfs/AppData/Local/Programs/MiKTeX/fonts/type1/ad
-obe/utopia/putb8a.pfb><C:/Users/erickfs/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/adobe/utopia/putbi8a.pfb><C:/Users/erickfs/AppData/Local/Programs/MiKTeX/fon
-ts/type1/adobe/utopia/putr8a.pfb><C:/Users/erickfs/AppData/Local/Programs/MiKTe
-X/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on "Bayesian Computing Report.pdf" (13 pages, 1596733 bytes).
+ 86i,11n,131p,2086b,517s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\erickfs\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi642\ec
+tt0900.pk>{C:/Users/erickfs/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/ly1/t
+exnansi.enc} <C:\Users\erickfs\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecrm1000.pk> <C:\Users\erickfs\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
+appen/ec/dpi600\ecrm1200.pk> <C:\Users\erickfs\AppData\Local\MiKTeX\fonts/pk/lj
+four/jknappen/ec/dpi600\ecrm0900.pk><C:/Users/erickfs/AppData/Local/Programs/Mi
+KTeX/fonts/type1/mathdesign/mdput/md-utbi7m.pfb><C:/Users/erickfs/AppData/Local
+/Programs/MiKTeX/fonts/type1/mathdesign/mdput/md-utr7t.pfb><C:/Users/erickfs/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/mathdesign/mdput/md-utr7v.pfb><C:/Users
+/erickfs/AppData/Local/Programs/MiKTeX/fonts/type1/mathdesign/mdput/md-utr7y.pf
+b><C:/Users/erickfs/AppData/Local/Programs/MiKTeX/fonts/type1/mathdesign/mdput/
+md-utr8t.pfb><C:/Users/erickfs/AppData/Local/Programs/MiKTeX/fonts/type1/mathde
+sign/mdput/md-utri7m.pfb><C:/Users/erickfs/AppData/Local/Programs/MiKTeX/fonts/
+type1/mathdesign/mdput/md-utri8t.pfb><C:/Users/erickfs/AppData/Local/Programs/M
+iKTeX/fonts/type1/adobe/utopia/putb8a.pfb><C:/Users/erickfs/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/adobe/utopia/putbi8a.pfb><C:/Users/erickfs/AppData/Local
+/Programs/MiKTeX/fonts/type1/adobe/utopia/putr8a.pfb><C:/Users/erickfs/AppData/
+Local/Programs/MiKTeX/fonts/type1/adobe/utopia/putri8a.pfb>
+Output written on "Bayesian Computing Report.pdf" (16 pages, 499119 bytes).
 PDF statistics:
- 394 PDF objects out of 1000 (max. 8388607)
- 86 named destinations out of 1000 (max. 500000)
- 172 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 526 PDF objects out of 1000 (max. 8388607)
+ 103 named destinations out of 1000 (max. 500000)
+ 278 words of extra memory for PDF output out of 10000 (max. 10000000)
 
