@@ -48,6 +48,13 @@ The Classification and Regression Tree analysis, first introduced by Breiman et 
 
 In a classification task, we have a training set with n observations, a class variable Y such that Y $\in {1, 2, \cdots, k}$ and the predictor variables $X_1, \cdots ,X_p$ with fixed dimensionality p and we try to find a model that better predicts the class Y given new values of X [1]. The CART technique for classification problems produces rectangular sets $A_j$ by recursively partitioning the data set a single X variable at a time into disjoint sets $A_1,\cdots, A_j$ and fitting a single prediction model within each partition [2]. The partitioning is repeated until a node is reached for which no split enhances homogeneity, at which point splitting is stopped and this node becomes a terminal node [1]. This partitioning can be visually represented with a decision tree. In figure 1.0 we see a classification tree model with three classes labeled 1, 2 and 3, where the partitions are on the left and the decision tree is on the right. The root node of the tree represents the entire data set, and at each node, if the condition is satisfied, a case is assigned to the left child node. Moreover, the predicted class is beneath each leaf node [2]. In contrast, in a regression task, the Y variable takes ordered values and we are trying to fit to each node a regression model to give predicted values of Y [2].
 
+\begin{figure}[h!] 
+\centering
+\includegraphics[width=0.7\textwidth]{images/image114.png}
+\caption{Partitions (left) and decision tree structure (right) for a classification tree model with three classes labeled 1, 2, and 3 [2].}
+\label{VarImp}
+\end{figure}
+
 The algorithm starts at the root node of the tree and grows itself as follows [3]: 
 \begin{itemize}
 \item Step 1: Explore every possible split on each predictor variable. Binary questions are typically used to produce binary splits.
@@ -64,10 +71,22 @@ The stopping criterion is reached when [4]:
 \end{itemize}
 
 Purity refers to the degree to which a subset of examples contains just a single class, and any subset made of only a single class is pure [4]. There are several purity metrics that may be used to choose the optimal decision tree splitting candidate. C5.0 and CART are two algorithms for classification that follow this approach. They are both very similar, however, C5.0 uses entropy for its impurity measure, while CART uses the Gini index [2]. Entropy is a measure of randomness or disorder within a set of class values. Mathematically, the entropy is formulated as follows: 
-,
+
+\begin{equation}
+E(S)=\sum_{i=1}^{c}-p_{i} \log _{2} p_{i},
+\end{equation}
+
 where S represents the segment of data, c the number of different classes and p the probability of the values being part of class i [4]. When entropy is equal to 0, this indicates that the set is completely homogeneous. The higher the entropy, the more diverse the set is, which means that less information is provided about other data points that may belong in the set. The goal of C5.0 is to find splits that reduce entropy,  hence enhancing homogeneity within the groups [4]. Now, using entropy, the Information Gain of a feature F can be calculated as shown below[4]:
 
+\begin{equation}
+\text{InfoGain(F) = Entropy(S1) - Entropy(S2).}
+\end{equation}
+
 The higher the information gain is, the more homogeneous the set created after the split on this feature is. On the other hand, Gini index calculates the "impurity" of a feature with respect to the classes [5]. More specifically, it indicates the probability of a specific feature to be classified incorrectly when we do random selection. It is given by the following formula [5]:
+
+\begin{equation}
+\sum \sum_{j \neq i} p_{i} p_{j}=\left(\sum p_{i}\right)^{2}-\sum p_{i}^{2}=1-\sum p_{i}^{2}
+\end{equation}
 
 Breiman et al. (1984) points out that the stopping rules in Step 3 do not work very well in practical applications, as the tree tends to become too large and has too few data points in each terminal node, making its decisions overly specific and increasing the risk of model overfitting. Therefore, to address this issue, there is the need to prune the tree. Pruning a decision tree is the process of reducing its size in order to generalize better to unseen data [4]. There are two types of decision tree pruning: pre-pruning or post-pruning. In pre-pruning, also known as early stopping, we let the tree grow until it reaches a predefined number of decisions or until there is only a small number of examples in the node, and then we stop it [4]. In this way we avoid doing extra work, however, it is difficult to know whether this way we leave out subtle but important patterns. On the other hand, in post-pruning, we intentionally allow a very large tree to grow and then we use pruning criteria to reduce its size to a more appropriate level [4]. This type of pruning ensures us that all of the important information is discovered. 
 	
@@ -91,7 +110,7 @@ Moreover, some of the drawbacks are:
 In Bayesian statistics, one would normally propose a prior distribution of the samples and these priors are updated according to the likelihood of observations from the samples. In this way, the posterior distribution, which describes the the distribution of the samples given the obtained likelihood, can be determined. The main formula of this update process is given as follows.
 
 \begin{equation} \label{Bayes}
-p(\theta \mid y) = \frac{p(\theta)p(y \mid \theta}{p(y)} = \frac{p(\theta)p(y \mid \theta}{\int p(\theta)p(y \mid \theta d\theta}
+p(\theta \mid y) = \frac{p(\theta)p(y \mid \theta)}{p(y)} = \frac{p(\theta)p(y \mid \theta)}{\int p(\theta)p(y \mid \theta) d\theta}
 \end{equation}
 
 The integral in the denominator which represents the marginal likelihood of y can be treated as a normalizing constant of the whole expression. For very simple distributions, this normalizing constant can be determined analytically. However, in real life situations, the likelihoods obtained can get highly complex in expression,which makes it impossible to evaluate this integral term. There are various methods that can be used instead to approximate the posterior distribution, without the need to evaluate such complicated integrals. One of the most common method is Markov Chain Monte Carlo, or MCMC.
@@ -184,6 +203,13 @@ We further break down the components of the trees in the $g_j$ function. We defi
 f(x)= \sum_{j=1}^{m} g(x;T_j,M_j)
 \end{equation}
 
+\begin{figure}[h!] 
+\centering
+\includegraphics[width=0.6\textwidth]{images/image113.png}
+\caption{A binary tree example.}
+\label{bintree}
+\end{figure}
+
 \subsubsection{Regularization Priors}\label{prior}
 Bayesian priors are the main features in BART which enforce regularization to the added regression trees, thus ensuring that the trees do not get too significantly big, adapt to the data well while at the same time reduce overfitting. The prior specifications, stated in Chipman et al. (2010), will be described in more detail here.
 
@@ -230,6 +256,8 @@ The likelihood is taken to be the likelihood of outputting certain values of Y g
 \begin{equation}
 y_l \sim \mathcal{N}(\mu_l, \sigma^2)
 \end{equation}
+
+
 
 \subsubsection{Posterior distributions}
 With the priors and likelihood specified in the previous sections, the posterior distribution is now left to be approximated. Direct analytical evaluation of the posterior distribution is not possible as it is not feasible to analytically compute the marginal likelihood from the non-trivial prior distribution functions. Chipman et al. (2010) proposed a specialized backfitting MCMC algorithm to approximate the posterior distribution. The specialized backfitting MCMC algorithm was developed off a similar backfitting MCMC algorithm proposed by Tibshirani et al. (2000) for approximating posterior distributions of generalized additive models. The pseudo-code for the specialized backfitting MCMC algorithm algorithm basing on the version summarized by Lakshminarayanan et al. (2015) is as follows[ref!].
@@ -286,6 +314,7 @@ Wainright website, is being used [24]. The dataset contains observations on 442 
 
 \begin{table}[h!]
 \centering
+\caption{Original diabetes data [25]}
 \begin{tabular}{cccccccccccc}
 \hline & AGE & SEX & BMI & BP & \multicolumn{5}{c} { Serum measurements } & Response \\
 Patient & $\mathrm{x}_{1}$ & $\mathrm{x}_{2}$ & $\mathrm{x}_{3}$ & $\mathrm{x}_{4}$ & $\mathrm{x}_{5}$ & $\mathrm{x}_{6}$ & $\mathrm{x}_{7}$ & $\mathrm{x}_{8}$ & $\mathrm{x}_{9}$ & $\mathrm{x}_{10}$ & $\mathrm{y}$ \\
@@ -322,6 +351,7 @@ There are currently multiple implemented BART libraries in R. The "bayesTree" li
 
 \begin{table}[h!]
 \centering
+\caption{Comparison of the different BART libraries in R \cite{}.}
 \begin{tabular}{l|lll} 
 & BayesTree & BART & bartMachine \\
 \hline Author(s) & Chipman & McCulloch & Kapelner \\
@@ -457,11 +487,122 @@ According to the variable importance plot, the covariates BMI and map ( mean art
 \end{figure}
 
 \subsection{Second experiment results : Performance Comparison}
-
 \subsubsection{Comparison with BART library}
-\subsubsection{Classic CART Results}
-\subsubsection{Random Forest Results}
 
+
+\subsubsection{Classic CART Results}
+Regression trees are generated through the rpart package in R. We fit the model on the training data by setting method="anova" as we are working in a regression setting. The regression tree is shown in Figure \ref{CART1}. 
+
+\begin{figure}[h!] 
+\centering
+\includegraphics[width=0.7\textwidth]{images/image107.png}
+\caption{The first regression tree using rpart.}
+\label{CART1}
+\end{figure}
+
+To compare the error for each cp value, cross-validation is performed such that the error related with a given cp value is computed on the hold-out validation data. In figure \ref{CARTcv} such a plot is shown, where the y-axis is the cross-validation error, the lower x-axis is the cp value and the upper x-axis is the number of terminal nodes. From the plot we see that the best value of cp, resulting in the lowest cross-validation error, is for cp=0.0426. This value of cp is used in the next section to perform pruning of the tree. 
+
+\begin{figure}[h!] 
+\centering
+\includegraphics[width=0.7\textwidth]{images/image111.png}
+\caption{Plot of the cross validation results for the tree across different cp values.}
+\label{CARTcv}
+\end{figure}
+
+The tree is pruned to avoid overfitting, by minimizing the cross-validation error - xerror. This is performed through automatic selection of the complexity parameters associated with the smallest cross-validation error. The pruned tree is displayed in figure \ref{CARTpruned}. In addition, the 10-fold cross validation repeated 10 times is used to help us find the best combinations of algorithm parameters for our classification problem by tuning the model parameters. In order to achieve such tuning, the CARET package of R, which stands for Classification and Regression Training, is being used. The 10-fold cross validation is repeated 10 times by specifying the method parameter and the repeats parameter of the trainControl function to "repeatedcv" and 10 respectively. In this way, each subset is used at least once for training the classifier, and the average performance on all the 10 folds is outputted. The model is tuned through the complexity parameter (cp). Moreover, the tuneLength parameter , which makes the model try different default values for the main parameter cp, is set to 100. This means that the total number of combinations evaluated is 100. Figure \ref{CARTtune} displays how the change in cp value affects the RMSE value. RMSE was used to select the optimal model using the smallest value. As it can be seen in the plot, the final value used for the model was cp = 0.033 with RMSE=62.8 and $R^2$=0.36 in the training set, and with RMSE = 63.9 and $R^2$= 0.33 in the test set. An R squared of 0.33 tells us that our model explains only 33\% of the variation in the data.
+
+\begin{figure}[h!] 
+\centering
+\includegraphics[width=0.7\textwidth]{images/image124.png}
+\caption{The pruned regression tree.}
+\label{CARTpruned}
+\end{figure}
+
+\begin{figure}[h!] 
+\centering
+\includegraphics[width=0.7\textwidth]{images/image127.png}
+\caption{Plot of cross validation RSME against tuning complexity parameters.}
+\label{CARTtune}
+\end{figure}
+
+In addition to tuning the cp value, we perform further tuning of minsplit and maxdepth. minsplit represents the minimum number of data points required to split a node before making it terminal, while maxdepth represents the maximum number of internal nodes.  To do so, grid search is used to automatically search across a range of differently tuned models to recognise the most optimal parameter setting with the highest performance. The search range of minsplit is set from 5-20 and the search range of maxdepth is set from 1-15, which results in 240 different combinations. It results that the lowest error is achieved with minsplit = 13, maxdepth = 3 and cp = 0.023. However, comparing such a model with the previous model, where we did cross-validation and cp tuning, we observe that the both models perform quite the same in terms of RMSE and R-squared (see Table \ref{CARTresults}). However, we see a much better performance of the model after performing 10-fold cross-validation and identifying the most optimal cp value, compared to the initial tree with default parameter setting or the pruned tree. The final regression tree after performing parameter tuning is shown in Figure \ref{CARTfinal}.
+
+\begin{table}
+\centering \caption{Regression tree models comparison.} \label{CARTresults}
+\begin{tabular}{|c|c|c|c|c|}
+\hline & Initial tree with default parameters & Pruned tree & 10-fold cross validation tree & Tuned tree \\
+\hline RMSE on test set & $65.78$ & $68.02$ & $63.9$ & $63.9$ \\
+\hline R Squared on test set & $0.33$ & $0.25$ & $0.33$ & $0.33$ \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{figure}[h!] 
+\centering
+\includegraphics[width=0.7\textwidth]{images/image110.png}
+\caption{Final regression tree after parameter tuning.}
+\label{CARTfinal}
+\end{figure}
+
+
+Lastly, the barplot of the variables that have the most largest weight in the prediction are plotted in figure \ref{CARTimp}. It is clear that ltg, bmi, bmi.ltg, tc, and bmi.2 are the top 5 most important variables in our regression model. 
+
+\begin{figure}[h!] 
+\centering
+\includegraphics[width=0.7\textwidth]{images/image112.png}
+\caption{Final regression tree after parameter tuning.}
+\label{CARTimp}
+\end{figure}
+
+\subsubsection{Random Forest Results}
+As mentioned before, in RF each tree is allowed to grow to a bootstrap resampled data set, and an advantage of it is the fact the RF has an out-of-bag (OOB) sample which gives a good and efficient approximation of the test error. The plot in figure \label{RFOOB} shows the OOB error versus the validation error for the random forest. As expected, there are some differences between them. The out-of-bag error seems to be constantly higher than the test error. 
+
+\begin{figure}[h!] 
+\centering
+\includegraphics[width=0.7\textwidth]{images/image125.png}
+\caption{Random forest out-of-bag error versus validation error.}
+\label{RFOOB}
+\end{figure}
+
+In figure \ref{RFtrees}, the plot of the random forest model with default parameter setting is shown. The plot illustrates the error rate as we increase the number of trees in the model. The error rate seems to stabilize with 100 trees, but it still continues to decrease even with a bigger number of trees at a much slower rate. According to this plot, the number of trees with the lowest MSE of 57.7 is 479 trees. However, to define the best parameter setting, tuning was performed in the model, which is described in more detail in the next section. 
+
+\begin{figure}[h!] 
+\centering
+\includegraphics[width=0.7\textwidth]{images/image118.png}
+\caption{Plot of the error of the first RF model with default parameter setting against number of trees.}
+\label{RFtrees}
+\end{figure}
+
+RF is mainly controlled by four parameters: mtry stands for the number of variables randomly sampled as candidates at each split, maxnodes stands for the depth of the tree, nodesize stands for the maximal number of observations in each cell, and ntree stands for the number of trees allowed to grow [26]. Hence, 10-fold cross validation is used to identify the optimal parameter setting. To tune the model, a grid of 1-50 is defined by setting the search parameter of TrainControl function to "grid", where each point in the grid represents a specific combination of parameters. In order to select the most optimal model, RMSE was used for selection using the smallest value, aiming for the lowest error, and so the best performance. First, a search for the best mtry is conducted. Figure \ref{RFRMSE} shows how the RMSE value changes with respect to the number  of variables used in the model, mtry score. As a result, the lowest RMSE score is obtained with a value of mtry equals to 10. As it can be clearly seen from the plot, there is a great drop in the cross-validation error from 0-10 randomly selected predictors, and after 10 there is a slow increase in the error. 
+
+\begin{figure}[h!] 
+\centering
+\includegraphics[width=0.7\textwidth]{images/image121.png}
+\caption{Plot of RMSE by number of variables used in the model for RF.}
+\label{RFRMSE}
+\end{figure}
+
+Next, we search for the best maxnodes parameter value. This is done in iterations, with the range being enlarged by ten in each iteration to attain the lowest RMSE. The lowest RMSE score of approximately 46.8 and the better R-squared value of 0.232 is obtained with a value of maxnode equals to 11.  The final parameter tuning is done to find the best ntrees score. This is performed by taking a vector [10, 50, 100, 250, 300, 350, 400, 450, 500, 550, 600, 800, 1000]. As a result, ntree equal to 50 seems to be the most optimal choice, both in terms of RMSE and R-squared values. Finally, the RF model is trained with the following parameter setting: maxnodes = 11, mtry = 10, ntree = 50. As a result, the RMSE on the test set is 56.8, while the R-squared = 0.47. Moreover, as it can be seen from the table below, after tuning we did not receive better results, as expected otherwise. 
+
+\begin{table}
+\centering \label{RFtuned} \caption{Random forest model comparison before and after parameter tuning.}
+\begin{tabular}{|l|l|l|}
+\hline & Initial RF with default parameters & RF with tuned parameters \\
+\hline RMSE on test set & $56.8$ & $56.8$ \\
+\hline R Squared on test set & $0.465$ & $0.469$ \\
+\hline
+\end{tabular}
+\end{table}
+
+The 5 most important features for the random forest based on node purity are ltg, bmi, map, bmi.ltg, bmi.2 as shown in Figure \ref{RFImp}, while based on MSE value ltg, bmi, map, tch, mpa.glu. Comparing these with the results of the CART, we see that the features with the highest weight in prediction are almost the same. 
+
+\begin{figure}[h!] 
+\centering
+\includegraphics[width=0.7\textwidth]{images/image115.png}
+\caption{Variable importance for random forest.}
+\label{RFImp}
+\end{figure}
 \section{Limitations and Outlook}
 
 
