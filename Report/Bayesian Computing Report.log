@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.3.10)  13 JUN 2021 19:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.3.10)  13 JUN 2021 19:46
 entering extended mode
 **"./Bayesian Computing Report.tex"
 ("Bayesian Computing Report.tex"
@@ -970,7 +970,7 @@ LaTeX Font Info:    Font shape `MDB/mdput/m/n' will be
 (Font)              scaled to size 9.40002pt on input line 51.
 LaTeX Font Info:    Font shape `MDB/mdput/m/n' will be
 (Font)              scaled to size 6.58002pt on input line 51.
-<images/image114.png, id=177, 683.55376pt x 374.39874pt>
+<images/image114.png, id=176, 683.55376pt x 374.39874pt>
 File: images/image114.png Graphic file (type png)
 <use images/image114.png>
 Package pdftex.def Info: images/image114.png  used on input line 55.
@@ -1062,7 +1062,7 @@ pos-sible steps ( GROW, PRUNE, CHANGE,
  []
 
 [8]
-<images/image122.png, id=342, 1122.1925pt x 800.9925pt>
+<images/image122.png, id=341, 1122.1925pt x 800.9925pt>
 File: images/image122.png Graphic file (type png)
 <use images/image122.png>
 Package pdftex.def Info: images/image122.png  used on input line 325.
@@ -1296,7 +1296,7 @@ nts/type1/adobe/utopia/putb8a.pfb><C:/Users/erickfs/AppData/Local/Programs/MiKT
 eX/fonts/type1/adobe/utopia/putbi8a.pfb><C:/Users/erickfs/AppData/Local/Program
 s/MiKTeX/fonts/type1/adobe/utopia/putr8a.pfb><C:/Users/erickfs/AppData/Local/Pr
 ograms/MiKTeX/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on "Bayesian Computing Report.pdf" (27 pages, 925178 bytes).
+Output written on "Bayesian Computing Report.pdf" (27 pages, 925898 bytes).
 PDF statistics:
  753 PDF objects out of 1000 (max. 8388607)
  162 named destinations out of 1000 (max. 500000)
