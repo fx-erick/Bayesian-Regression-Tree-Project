@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.3.10)  13 JUN 2021 16:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.3.10)  13 JUN 2021 19:32
 entering extended mode
 **"./Bayesian Computing Report.tex"
 ("Bayesian Computing Report.tex"
@@ -660,9 +660,6 @@ LaTeX Warning: Label `VarImp' multiply defined.
 
 LaTeX Warning: Label `RFOOB' multiply defined.
 
-
-LaTeX Warning: Label `result' multiply defined.
-
 )
 \openout1 = `"Bayesian Computing Report.aux"'.
 
@@ -973,7 +970,7 @@ LaTeX Font Info:    Font shape `MDB/mdput/m/n' will be
 (Font)              scaled to size 9.40002pt on input line 51.
 LaTeX Font Info:    Font shape `MDB/mdput/m/n' will be
 (Font)              scaled to size 6.58002pt on input line 51.
-<images/image114.png, id=160, 683.55376pt x 374.39874pt>
+<images/image114.png, id=177, 683.55376pt x 374.39874pt>
 File: images/image114.png Graphic file (type png)
 <use images/image114.png>
 Package pdftex.def Info: images/image114.png  used on input line 55.
@@ -999,8 +996,14 @@ LaTeX Font Info:    Font shape `T1/mdput/b/n' will be
 (Font)              scaled to size 9.40002pt on input line 133.
 LaTeX Font Info:    Font shape `T1/mdput/m/fsc' will be
 (Font)              scaled to size 9.40002pt on input line 136.
- [4] [5]
-<images/image113.png, id=201, 594.22pt x 398.48875pt>
+ [4]
+Overfull \hbox (1.02025pt too wide) in paragraph at lines 161--162
+\T1/mdput/m/n/10 cept-ance rate is al-ways taken as 1 [[]]. It is spe-cially us
+ed when sampling mul-tivari-ate dis-tri-bu-tions, whereby
+ []
+
+[5]
+<images/image113.png, id=269, 594.22pt x 398.48875pt>
 File: images/image113.png Graphic file (type png)
 <use images/image113.png>
 Package pdftex.def Info: images/image113.png  used on input line 210.
@@ -1058,181 +1061,208 @@ Overfull \hbox (8.42348pt too wide) in paragraph at lines 297--298
 pos-sible steps ( GROW, PRUNE, CHANGE,
  []
 
-[8] [9] [10] [11]
-<images/CI.png, id=263, 606.265pt x 606.265pt>
+[8]
+<images/image122.png, id=342, 1122.1925pt x 800.9925pt>
+File: images/image122.png Graphic file (type png)
+<use images/image122.png>
+Package pdftex.def Info: images/image122.png  used on input line 325.
+(pdftex.def)             Requested size: 313.69026pt x 223.89748pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[9] [10 <./images/image122.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[11]
+<images/CI.png, id=391, 606.265pt x 606.265pt>
 File: images/CI.png Graphic file (type png)
 <use images/CI.png>
-Package pdftex.def Info: images/CI.png  used on input line 412.
+Package pdftex.def Info: images/CI.png  used on input line 421.
 (pdftex.def)             Requested size: 268.88127pt x 268.88512pt.
-<images/PI.png, id=266, 606.265pt x 606.265pt>
+ [12 <./images/CI.png>]
+<images/PI.png, id=402, 606.265pt x 606.265pt>
 File: images/PI.png Graphic file (type png)
 <use images/PI.png>
-Package pdftex.def Info: images/PI.png  used on input line 421.
+Package pdftex.def Info: images/PI.png  used on input line 430.
 (pdftex.def)             Requested size: 268.88127pt x 268.88512pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<images/RMSEtrees.png, id=268, 389.20406pt x 342.5297pt>
+<images/RMSEtrees.png, id=404, 389.20406pt x 342.5297pt>
 File: images/RMSEtrees.png Graphic file (type png)
 <use images/RMSEtrees.png>
-Package pdftex.def Info: images/RMSEtrees.png  used on input line 433.
+Package pdftex.def Info: images/RMSEtrees.png  used on input line 442.
 (pdftex.def)             Requested size: 268.88127pt x 236.64365pt.
 
+
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[12 <./images/CI.png>] [13 <./images/PI.png> <./images/RMSEtrees.png>]
-<images/ErrorAss.png, id=286, 699.61375pt x 606.265pt>
+[13 <./images/PI.png>]
+<images/ErrorAss.png, id=414, 699.61375pt x 606.265pt>
 File: images/ErrorAss.png Graphic file (type png)
 <use images/ErrorAss.png>
-Package pdftex.def Info: images/ErrorAss.png  used on input line 445.
+Package pdftex.def Info: images/ErrorAss.png  used on input line 454.
 (pdftex.def)             Requested size: 313.69026pt x 271.83614pt.
-<images/MCMC_convergence.png, id=288, 722.7pt x 371.13657pt>
+ [14 <./images/RMSEtrees.png> <./images/ErrorAss.png>]
+<images/MCMC_convergence.png, id=423, 722.7pt x 371.13657pt>
 File: images/MCMC_convergence.png Graphic file (type png)
 <use images/MCMC_convergence.png>
-Package pdftex.def Info: images/MCMC_convergence.png  used on input line 457.
+Package pdftex.def Info: images/MCMC_convergence.png  used on input line 466.
 (pdftex.def)             Requested size: 448.1309pt x 230.13626pt.
 LaTeX Font Info:    Font shape `T1/mdput/b/n' will be
-(Font)              scaled to size 8.46002pt on input line 458.
+(Font)              scaled to size 8.46002pt on input line 467.
 LaTeX Font Info:    Font shape `T1/mdput/b/n' will be
-(Font)              scaled to size 5.64001pt on input line 458.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[14 <./images/ErrorAss.png>]
-
-LaTeX Warning: Reference `' on page 15 undefined on input line 479.
+(Font)              scaled to size 5.64001pt on input line 467.
 
 [15 <./images/MCMC_convergence.png>]
-<images/VarImp.png, id=302, 722.7pt x 371.13657pt>
+<images/VarImp.png, id=431, 722.7pt x 371.13657pt>
 File: images/VarImp.png Graphic file (type png)
 <use images/VarImp.png>
-Package pdftex.def Info: images/VarImp.png  used on input line 483.
+Package pdftex.def Info: images/VarImp.png  used on input line 492.
 (pdftex.def)             Requested size: 448.1309pt x 230.13626pt.
-<images/PD_BMI.png, id=303, 408.02437pt x 356.0803pt>
+<images/PD_BMI.png, id=432, 408.02437pt x 356.0803pt>
 File: images/PD_BMI.png Graphic file (type png)
 <use images/PD_BMI.png>
-Package pdftex.def Info: images/PD_BMI.png  used on input line 492.
+Package pdftex.def Info: images/PD_BMI.png  used on input line 501.
 (pdftex.def)             Requested size: 313.69026pt x 273.76974pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/PD_map.png, id=304, 408.02437pt x 356.0803pt>
+<images/PD_map.png, id=433, 408.02437pt x 356.0803pt>
 File: images/PD_map.png Graphic file (type png)
 <use images/PD_map.png>
-Package pdftex.def Info: images/PD_map.png  used on input line 499.
+Package pdftex.def Info: images/PD_map.png  used on input line 508.
 (pdftex.def)             Requested size: 313.69026pt x 273.76974pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [16 <./images/VarImp.png>] [17 <./images/PD_BMI.png> <./images/PD_map.png>]
-<images/image107.png, id=320, 705.38531pt x 479.54156pt>
+<images/image107.png, id=451, 705.38531pt x 479.54156pt>
 File: images/image107.png Graphic file (type png)
 <use images/image107.png>
-Package pdftex.def Info: images/image107.png  used on input line 515.
+Package pdftex.def Info: images/image107.png  used on input line 524.
 (pdftex.def)             Requested size: 313.69026pt x 213.25264pt.
-<images/image111.png, id=322, 621.07031pt x 365.86688pt>
+<images/image111.png, id=453, 621.07031pt x 365.86688pt>
 File: images/image111.png Graphic file (type png)
 <use images/image111.png>
-Package pdftex.def Info: images/image111.png  used on input line 524.
+Package pdftex.def Info: images/image111.png  used on input line 533.
 (pdftex.def)             Requested size: 313.69026pt x 184.792pt.
-
-Overfull \hbox (14.62207pt too wide) in paragraph at lines 529--530
-\T1/mdput/m/n/10 formed through auto-matic se-lec-tion of the com-plex-ity para
--met-ers as-so-ci-ated with the smal-lest cross-validation
- []
-
-[18 <./images/image107.png (PNG copy)> <./images/image111.png>]
-<images/image124.png, id=333, 621.07031pt x 365.86688pt>
-File: images/image124.png Graphic file (type png)
-<use images/image124.png>
-Package pdftex.def Info: images/image124.png  used on input line 533.
-(pdftex.def)             Requested size: 313.69026pt x 184.792pt.
-<images/image127.png, id=334, 621.07031pt x 365.86688pt>
-File: images/image127.png Graphic file (type png)
-<use images/image127.png>
-Package pdftex.def Info: images/image127.png  used on input line 540.
-(pdftex.def)             Requested size: 313.69026pt x 184.792pt.
- [19 <./images/image124.png> <./images/image127.png>]
-Overfull \hbox (60.52179pt too wide) in paragraph at lines 549--555
- [][] 
- []
-
-<images/image110.png, id=346, 505.89pt x 317.68687pt>
-File: images/image110.png Graphic file (type png)
-<use images/image110.png>
-Package pdftex.def Info: images/image110.png  used on input line 560.
-(pdftex.def)             Requested size: 313.69026pt x 196.99289pt.
-<images/image112.png, id=348, 505.89pt x 317.68687pt>
-File: images/image112.png Graphic file (type png)
-<use images/image112.png>
-Package pdftex.def Info: images/image112.png  used on input line 570.
-(pdftex.def)             Requested size: 313.69026pt x 196.99289pt.
-[20 <./images/image110.png> <./images/image112.png>]
-<images/image125.png, id=357, 505.89pt x 317.68687pt>
-File: images/image125.png Graphic file (type png)
-<use images/image125.png>
-Package pdftex.def Info: images/image125.png  used on input line 580.
-(pdftex.def)             Requested size: 313.69026pt x 196.99289pt.
-<images/image118.png, id=359, 505.89pt x 317.68687pt>
-File: images/image118.png Graphic file (type png)
-<use images/image118.png>
-Package pdftex.def Info: images/image118.png  used on input line 589.
-(pdftex.def)             Requested size: 313.69026pt x 196.99289pt.
- [21 <./images/image125.png> <./images/image118.png>]
-<images/image121.png, id=369, 505.89pt x 317.68687pt>
-File: images/image121.png Graphic file (type png)
-<use images/image121.png>
-Package pdftex.def Info: images/image121.png  used on input line 598.
-(pdftex.def)             Requested size: 313.69026pt x 196.99289pt.
-<images/image115.png, id=371, 603.0028pt x 516.42938pt>
-File: images/image115.png Graphic file (type png)
-<use images/image115.png>
-Package pdftex.def Info: images/image115.png  used on input line 619.
-(pdftex.def)             Requested size: 313.69026pt x 268.64726pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Package caption Warning: \label without proper reference on input line 642.
-See the caption package documentation for explanation.
+Overfull \hbox (14.62207pt too wide) in paragraph at lines 538--539
+\T1/mdput/m/n/10 formed through auto-matic se-lec-tion of the com-plex-ity para
+-met-ers as-so-ci-ated with the smal-lest cross-validation
+ []
+
+[18 <./images/image107.png (PNG copy)>]
+<images/image124.png, id=463, 621.07031pt x 365.86688pt>
+File: images/image124.png Graphic file (type png)
+<use images/image124.png>
+Package pdftex.def Info: images/image124.png  used on input line 542.
+(pdftex.def)             Requested size: 313.69026pt x 184.792pt.
+<images/image127.png, id=464, 621.07031pt x 365.86688pt>
+File: images/image127.png Graphic file (type png)
+<use images/image127.png>
+Package pdftex.def Info: images/image127.png  used on input line 549.
+(pdftex.def)             Requested size: 313.69026pt x 184.792pt.
 
 
-LaTeX Warning: Reference `result' on page 22 undefined on input line 640.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[22 <./images/image121.png>] [23 <./images/image115.png>]
-("Bayesian Computing Report.bbl"
+[19 <./images/image111.png> <./images/image124.png>]
+Overfull \hbox (60.52179pt too wide) in paragraph at lines 558--564
+ [][] 
+ []
+
+<images/image110.png, id=475, 505.89pt x 317.68687pt>
+File: images/image110.png Graphic file (type png)
+<use images/image110.png>
+Package pdftex.def Info: images/image110.png  used on input line 569.
+(pdftex.def)             Requested size: 313.69026pt x 196.99289pt.
+<images/image112.png, id=477, 505.89pt x 317.68687pt>
+File: images/image112.png Graphic file (type png)
+<use images/image112.png>
+Package pdftex.def Info: images/image112.png  used on input line 579.
+(pdftex.def)             Requested size: 313.69026pt x 196.99289pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[20 <./images/image127.png> <./images/image110.png>]
+<images/image125.png, id=487, 505.89pt x 317.68687pt>
+File: images/image125.png Graphic file (type png)
+<use images/image125.png>
+Package pdftex.def Info: images/image125.png  used on input line 589.
+(pdftex.def)             Requested size: 313.69026pt x 196.99289pt.
+<images/image118.png, id=489, 505.89pt x 317.68687pt>
+File: images/image118.png Graphic file (type png)
+<use images/image118.png>
+Package pdftex.def Info: images/image118.png  used on input line 598.
+(pdftex.def)             Requested size: 313.69026pt x 196.99289pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[21 <./images/image112.png> <./images/image125.png>]
+<images/image121.png, id=501, 505.89pt x 317.68687pt>
+File: images/image121.png Graphic file (type png)
+<use images/image121.png>
+Package pdftex.def Info: images/image121.png  used on input line 607.
+(pdftex.def)             Requested size: 313.69026pt x 196.99289pt.
+<images/image115.png, id=503, 603.0028pt x 516.42938pt>
+File: images/image115.png Graphic file (type png)
+<use images/image115.png>
+Package pdftex.def Info: images/image115.png  used on input line 628.
+(pdftex.def)             Requested size: 313.69026pt x 268.64726pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[22 <./images/image118.png> <./images/image121.png>] [23 <./images/image115.png
+>]
+Overfull \hbox (1.45044pt too wide) in paragraph at lines 668--669
+[]\T1/mdput/m/n/10 Kapelner and Bleich (2016) [[]] in-tro-duce the bart-Ma-chin
+e pack-age in R, which im-ple-ments the Bayesian
+ []
+
+[24] ("Bayesian Computing Report.bbl"
 LaTeX Font Info:    Font shape `T1/mdput/m/it' will be
-(Font)              scaled to size 8.46002pt on input line 5.
-LaTeX Font Info:    Font shape `T1/cmtt/m/n' will be
-(Font)              scaled to size 9.63007pt on input line 14.
+(Font)              scaled to size 8.46002pt on input line 6.
+) [25
 
-Underfull \hbox (badness 10000) in paragraph at lines 10--16
-[]\T1/mdput/m/n/9 Kartik Chaud-hary.  Un-der-stand-ing au-dio data, four-ier tr
-ans-form, fft and spec-tro-
- []
+]
+<images/image119.png, id=537, 621.07031pt x 365.86688pt>
+File: images/image119.png Graphic file (type png)
+<use images/image119.png>
+Package pdftex.def Info: images/image119.png  used on input line 687.
+(pdftex.def)             Requested size: 313.69026pt x 184.792pt.
+<images/image126.png, id=538, 792.9625pt x 433.62pt>
+File: images/image126.png Graphic file (type png)
+<use images/image126.png>
+Package pdftex.def Info: images/image126.png  used on input line 692.
+(pdftex.def)             Requested size: 313.69026pt x 171.53937pt.
+<images/image108.png, id=539, 621.07031pt x 365.86688pt>
+File: images/image108.png Graphic file (type png)
+<use images/image108.png>
+Package pdftex.def Info: images/image108.png  used on input line 697.
+(pdftex.def)             Requested size: 313.69026pt x 184.792pt.
+<images/image117.png, id=540, 621.07031pt x 365.86688pt>
+File: images/image117.png Graphic file (type png)
+<use images/image117.png>
+Package pdftex.def Info: images/image117.png  used on input line 703.
+(pdftex.def)             Requested size: 313.69026pt x 184.792pt.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10--16
-\T1/mdput/m/n/9 gram fea-tures for a speech re-cog-ni-tion sys-tem.  [][]$\T1/c
-mtt/m/n/9 https : / / towardsdatascience . com /
- []
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+[26
 
-Overfull \hbox (53.24847pt too wide) in paragraph at lines 10--16
-\T1/cmtt/m/n/9 understanding-[]audio-[]data-[]fourier-[]transform-[]fft-[]spect
-rogram-[]and-[]speech-[]recognition-[]a4072d228520$[][]\T1/mdput/m/n/9 ,
- []
-
-) [24] [25] ("Bayesian Computing Report.aux")
+ <./images/image119.png> <./images/image126.png> <./images/image108.png>]
+[27 <./images/image117.png>] ("Bayesian Computing Report.aux")
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1242,34 +1272,33 @@ nged.
 (rerunfilecheck)             Checksum: 362A99904C8917F5A2868F13610D661F;5873.
  ) 
 Here is how much of TeX's memory you used:
- 15737 strings out of 479618
- 237515 string characters out of 2864076
- 542234 words of memory out of 3000000
- 32445 multiletter control sequences out of 15000+200000
- 603334 words of font info for 166 fonts, out of 3000000 for 9000
+ 15811 strings out of 479618
+ 238251 string characters out of 2864076
+ 538784 words of memory out of 3000000
+ 32489 multiletter control sequences out of 15000+200000
+ 603021 words of font info for 165 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 86i,11n,131p,2086b,517s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\erickfs\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi642\ec
-tt0900.pk>{C:/Users/erickfs/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/ly1/t
-exnansi.enc} <C:\Users\erickfs\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecrm1000.pk> <C:\Users\erickfs\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
-appen/ec/dpi600\ecrm1200.pk> <C:\Users\erickfs\AppData\Local\MiKTeX\fonts/pk/lj
-four/jknappen/ec/dpi600\ecrm0900.pk><C:/Users/erickfs/AppData/Local/Programs/Mi
-KTeX/fonts/type1/mathdesign/mdput/md-utbi7m.pfb><C:/Users/erickfs/AppData/Local
-/Programs/MiKTeX/fonts/type1/mathdesign/mdput/md-utr7t.pfb><C:/Users/erickfs/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/mathdesign/mdput/md-utr7v.pfb><C:/Users
-/erickfs/AppData/Local/Programs/MiKTeX/fonts/type1/mathdesign/mdput/md-utr7y.pf
-b><C:/Users/erickfs/AppData/Local/Programs/MiKTeX/fonts/type1/mathdesign/mdput/
-md-utr8t.pfb><C:/Users/erickfs/AppData/Local/Programs/MiKTeX/fonts/type1/mathde
-sign/mdput/md-utri7m.pfb><C:/Users/erickfs/AppData/Local/Programs/MiKTeX/fonts/
-type1/mathdesign/mdput/md-utri8t.pfb><C:/Users/erickfs/AppData/Local/Programs/M
-iKTeX/fonts/type1/adobe/utopia/putb8a.pfb><C:/Users/erickfs/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/adobe/utopia/putbi8a.pfb><C:/Users/erickfs/AppData/Local
-/Programs/MiKTeX/fonts/type1/adobe/utopia/putr8a.pfb><C:/Users/erickfs/AppData/
-Local/Programs/MiKTeX/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on "Bayesian Computing Report.pdf" (25 pages, 745832 bytes).
+ 86i,11n,131p,2143b,517s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/erickfs/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/ly1/texnansi.
+enc} <C:\Users\erickfs\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
+ecrm1000.pk> <C:\Users\erickfs\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecrm1200.pk> <C:\Users\erickfs\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
+appen/ec/dpi600\ecrm0900.pk><C:/Users/erickfs/AppData/Local/Programs/MiKTeX/fon
+ts/type1/mathdesign/mdput/md-utbi7m.pfb><C:/Users/erickfs/AppData/Local/Program
+s/MiKTeX/fonts/type1/mathdesign/mdput/md-utr7t.pfb><C:/Users/erickfs/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/mathdesign/mdput/md-utr7v.pfb><C:/Users/erickfs
+/AppData/Local/Programs/MiKTeX/fonts/type1/mathdesign/mdput/md-utr7y.pfb><C:/Us
+ers/erickfs/AppData/Local/Programs/MiKTeX/fonts/type1/mathdesign/mdput/md-utr8t
+.pfb><C:/Users/erickfs/AppData/Local/Programs/MiKTeX/fonts/type1/mathdesign/mdp
+ut/md-utri7m.pfb><C:/Users/erickfs/AppData/Local/Programs/MiKTeX/fonts/type1/ma
+thdesign/mdput/md-utri8t.pfb><C:/Users/erickfs/AppData/Local/Programs/MiKTeX/fo
+nts/type1/adobe/utopia/putb8a.pfb><C:/Users/erickfs/AppData/Local/Programs/MiKT
+eX/fonts/type1/adobe/utopia/putbi8a.pfb><C:/Users/erickfs/AppData/Local/Program
+s/MiKTeX/fonts/type1/adobe/utopia/putr8a.pfb><C:/Users/erickfs/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/adobe/utopia/putri8a.pfb>
+Output written on "Bayesian Computing Report.pdf" (27 pages, 925178 bytes).
 PDF statistics:
- 647 PDF objects out of 1000 (max. 8388607)
- 136 named destinations out of 1000 (max. 500000)
- 370 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 753 PDF objects out of 1000 (max. 8388607)
+ 162 named destinations out of 1000 (max. 500000)
+ 395 words of extra memory for PDF output out of 10000 (max. 10000000)
 
