@@ -15,7 +15,7 @@
 \newcommand{\der}{\operatorname{d\!}{}}
 \begin{document}
 
-\title{\bf Bayesian Added Regression Tree (BART) \\ {\normalfont An overview of applications of Bayesian methods in regression }}
+\title{\bf Bayesian Additive Regression Tree (BART) \\ {\normalfont An overview of applications of Bayesian methods in regression }}
 \author{Glejdis Shk\"embi}{\dagger}
 \author{Franciskus Xaverius Erick}{\dagger}
 
@@ -35,13 +35,15 @@
 \end{abstract}
 
 \section{Motivation}
-.
-\section{Mathematical Background}
-In its core the FFT is an algorithm that allows us to solve a mathematical problem with less computational effort than needed at first glance.
-It calculates the discrete Fourier transform (DFT), which can be described as a matrix vector multiplication in only $\mathcal{O}(n\log(n))$ operations\cite{cochran1967fast}. 
+Diabetes Mellitus is considered to be a global public health emergency. According to current worldwide estimates, this illness affects 415 million individuals and is expected to impact 642 million by 2040 [28]. The most concerning part is that an addition of 193 million people with diabetes are undiagnosed [28]. This is due to the often mild or asymptomatic character of the disease, particularly in type 2 diabetes. Consistently high blood glucose levels can lead to major life-changing and life-threatening consequences, such as hypertension, dyslipidemia, microalbuminuria and overt diabetic nephropathy [28]. Diabetes kills 5 million individuals globally each year as a result of such complications, the majority of whom die prematurely. Being able to predict the progression of the disease at an early stage would facilitate the work of the medical workers and help in early correct treatment in order to prevent aggravation.  Therefore, in this paper we use a very powerful statistical model and try to analyse the data of 442 patients, including information such as age, sex, body-mass index (BMI), average blood pressure (BP), to predic the disease progression one year after the baseline. 
+Bayesian Additive Regression Trees (BART) model recursively creates regression trees with variable hyperparameter distributions, including number of nodes, number of terminal nodes and depth of the tree [16]. Since all parameters and hyperparameters are assumed to be non-parametric, the parameter distributions are recorded from recursive sampling from the Metropolis-Hastings algorithm [16]. In contrast to the ensemble methods, in BART the Bayesian posterior distributions are computed in order to approximate the nonparametric model parameters. BART reduces the risk of overfitting by using regularization prior which limits the weights given to trees with small 2values [16]. 
 
-In this section we will provide the most important mathematical basics of the FFT. We will cover the notion of Hilbert spaces, which gives a framework for function spaces and the understanding of functions as bases.
-Furthermore, we will introduce the main aspects of the Fourier series and transform in their analytical and discrete form.
+In this research paper, we aim to show the power of BART model through a real world application using the diabetes data which is free and publicly available on Hastie, Tibshirani,
+Wainright website [24], and compare such a model with classical CART and Random Forests.  
+
+\section{Mathematical Background}
+In this section ,we will cover the notion of Classification and Regression Trees (CART), which gives a framework for the implementation of BART. 
+Afterwards, we will introduce the main aspects of the Bayesian inference methods used in BART, namely Markov Chain Monte Carlo (MCMC), Metropolis-Hastings algorithm, and Gibbs sampler. The details in how these Bayesian inference methods are applied in the modelling of BART is also given afterwards. Furthemore, short theoretical background to random forest is also given.
 
 \subsection{Classification and Regression Trees - CART}
 The Classification and Regression Tree analysis, first introduced by Breiman et al. in 1984, is a well known decision tree method used in constructing predictor variables from the data. It builds a binary decision tree based on some splitting rule on the predictors [1]. Regression trees are used for variables with continuous or ordered discrete values, while classification trees are intended for variables with a finite number of unordered values. Moreover, for regression trees, the prediction error is commonly assessed as the squared difference between the observed and predicted values, while for classification trees the prediction error is evaluated in terms of misclassification cost [2].
@@ -305,8 +307,19 @@ Since the prior is taken as the conjugate prior inverse chi-squared distribution
 \subsubsection{Recommended Hyperparameters}\label{rec}
 In summary, the recommended hyperparameters for the modelling of the priors are  $\alpha = 0.95, \beta =2, \nu = 3, q = 0.90, and k = 2$. The recommended number of trees is taken as m = 200. To ensure that the MCMC converges, a sufficient number of burn-in iterations needs to be taken into account.
 
+
+\subsection{Random Forest}
+Random forest, championed by Leo Breiman and Adele Cutler, is an ensemble method combining decision trees and bagging [22]. Using the concepts of random feature selection and bagging, first, it generates a collection of trees, and then each of the trees votes for the most popular class [4] (see Figure 1.2). To improve stability and accuracy of the regression models, bagging is being used. Bagging does random sampling with replacement. That is to say that  many different "copies" of the training data are created, then weak classifiers are applied to these "copies", and their result is combined. This will result in reduced variance and low overfitting [23]. 
+	Building the ensembles, for the k-th decision tree, a random vector k with identical distribution for all the trees in the forest is generated [22]. These vectors are independent of all the previous random vectors $i$ where $i = 1,\cdots,k-1$. Next a tree is grown using the training set and the generated random vector [22]. This results in a classifier $h(x,k)$ where $x$ denotes the input vector and $k$ denotes the generated random vector [22]. Moreover, the trees are allowed to grow without pruning, which results in low bias.  Some of the main advantages of RF include[4]:
+
+\begin{itemize}
+\item Can work with categorical and continuous features;
+\item Can handle missing and noisy data;
+\item Can perform well even with a large number of features as it selects only a subset of them. 
+\end{itemize} 
+
 \section{Experiment Methods}
-The experiments will be done in two parts. First experiment is to run a BART model in R and evaluate the results and its performance. This is done by utilizing a prewritten BART library in R called "bartMachine". The second part of the experiment is to compare the performance of the BART model itself with another BART model from another R library called "BART" and, a classic regression tree model, and a random forest model.
+The experiments will be done in three parts parts. First experiment is to run a BART model in R and evaluate the results and its performance. This is done by utilizing a prewritten BART library in R called "bartMachine". The second part of the experiment is to compare the performance of the BART model itself with another BART model from another R library called "BART", a classic regression tree model, and a random forest model. In the third part, we will compare the performance of BART against the classic regression tree and random forest model trained on a synthetic dataset.
 
 \subsection{Dataset}\label{dataset}
 In this study, the diabetes data which is free and publicly available on Hastie, Tibshirani,
@@ -330,6 +343,17 @@ $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\v
 \hline
 \end{tabular}
 \end{table}
+
+
+In the third part of the experiment, a synthetic dataset would be used to test the performance of the models in a controlled setting. A common synthetic dataset used for regression models is the Friedman dataset, first used in the publication of Multivariate Adaptive Regression Splines (MARS)[100].This dataset consists of covariates of x, whereby each covariate data consists of random numbers between 0 and 1 sampled from uniform distribution. The response y is determined from the following equation.
+
+\begin{equation}\label{friedman}
+\boldsymbol{y}=10 \sin \left(\pi \boldsymbol{x}_{1} \boldsymbol{x}_{2}\right)+20\left(\boldsymbol{x}_{3}-.5\right)^{2}+10 \boldsymbol{x}_{4}+5 \boldsymbol{x}_{5}+\mathcal{E}, \quad \mathcal{E} \sim \mathcal{N}_{n}\left(\mathbf{0}, \sigma^{2} \boldsymbol{I}\right)
+\end{equation}
+
+As from the equation, we can see that the response y only depends on 5 covariates. There are non-linear dependencies for the covariates $\boldsymbol{x}_{1}, \boldsymbol{x}_{2}, \text{
+and} \boldsymbol{x}_{3}$ and linear dependencies for covariates $\boldsymbol{x}_{4} \text{
+and} \boldsymbol{x}_{5}$. Therefore, using the Friedman data, we can test the performance of the models for non-linear, multivariate data in a controlled setting, whereby the exact dependencies of the covariates is known. This is in contrast with real datasets, whereby the exact dependencies and relationships between the covariates are not exactly understood. For our comparisons with Friedman dataset, we used the Friedman dataset function as implemented by Kappelner and Bleich \cite{}. We use a generated Friedman dataset with 100 covariates, whereby only the first 5 covariates contribute to the output response as seen in equation \ref{friedman}. We use 500 training observations to train the models. The trained models are then tested on 500 test observations.
 
 \subsection{Evaluation Metrics}
 In our regression setting, to measure the performance of our models, R squared and root mean squared error (RMSE) are used. R squared is the proportion of variance explained by the model: 
@@ -372,15 +396,6 @@ Cross-validation & No & No & Yes \\
 \end{tabular}
 \end{table}
 
-\subsection{Random Forest}
-Random forest, championed by Leo Breiman and Adele Cutler, is an ensemble method combining decision trees and bagging [22]. Using the concepts of random feature selection and bagging, first, it generates a collection of trees, and then each of the trees votes for the most popular class [4] (see Figure 1.2). To improve stability and accuracy of the regression models, bagging is being used. Bagging does random sampling with replacement. That is to say that  many different "copies" of the training data are created, then weak classifiers are applied to these "copies", and their result is combined. This will result in reduced variance and low overfitting [23]. 
-	Building the ensembles, for the k-th decision tree, a random vector k with identical distribution for all the trees in the forest is generated [22]. These vectors are independent of all the previous random vectors $i$ where $i = 1,\cdots,k-1$. Next a tree is grown using the training set and the generated random vector [22]. This results in a classifier $h(x,k)$ where $x$ denotes the input vector and $k$ denotes the generated random vector [22]. Moreover, the trees are allowed to grow without pruning, which results in low bias.  Some of the main advantages of RF include[4]:
-
-\begin{itemize}
-\item Can work with categorical and continuous features;
-\item Can handle missing and noisy data;
-\item Can perform well even with a large number of features as it selects only a subset of them. 
-\end{itemize} 
 
 
 
@@ -408,7 +423,7 @@ The plot shows that in overall, most of the predicted values lie around the diag
 \label{PI}
 \end{figure}
 
-From the figure, we can see that the with the regularization error considered, 99.7\% of the dataset actually have their ground truths lie within the 95\% prediction interval of the posterior distribution. Thus, we can see that the model performs reasonably well with the training dataset. Additionally, the 10-fold cross validation RSME of the model is observed to be 56.9, while the 10-fold cross validation pseudo R-squared of the model is observed to be 0.45. These are obtained by the command \textit{k\_fold\_cv(x\_train, y\_train, k\_folds = 10)}. The out-of-sample performance of our BART model is also tested against the test dataset with the command \textit{oos\_perf = bart\_predict\_for\_test\_data(bart\_machine, x\_test, y\_test)}. We obtain an out-of-sample test RMSE value of 56.1. This is about 33\% higher than the in-sample-RMSE values, which also mean that the bartMachine model overfits slightly to the train dataset with the current default hyperparameter values. We will investigate if altering the prior hyperparameters and specifications might result to less overfitted predictions in the hyperparameter optimization section.
+From the figure, we can see that the with the regularization error considered, 99.7\% of the dataset actually have their ground truths lie within the 95\% prediction interval of the posterior distribution. Thus, we can see that the model performs reasonably well with the training dataset. Additionally, the 10-fold cross validation RSME of the model is observed to be 56.9, while the 10-fold cross validation pseudo R-squared of the model is observed to be 0.45. These are obtained by the command \textit{k\_fold\_cv(x\_train, y\_train, k\_folds = 10)}. The out-of-sample performance of our BART model is also tested against the test dataset with the command \textit{oos\_perf = bart\_predict\_for\_test\_data(bart\_machine, x\_test, y\_test)}. We obtain an out-of-sample test RMSE value of c. This is about 33\% higher than the in-sample-RMSE values, which also mean that the bartMachine model overfits slightly to the train dataset with the current default hyperparameter values. We will investigate if altering the prior hyperparameters and specifications might result to less overfitted predictions in the hyperparameter optimization section.
 
 
 The command \textit{rmse\_by\_num\_trees(bart\_machine, num\_replicates = 20)} allows us to plot the RSME of the models against the number of trees used, whereby the average RSME of the 20 replicates of the models are used for the evaluation. The plot is shown in Figure \ref{RMSEtrees}.
@@ -486,11 +501,13 @@ According to the variable importance plot, the covariates BMI and map ( mean art
 \label{PDmap}
 \end{figure}
 
+From both plots, we can observe that changing the values of BMI and map covariate change the output values significantly. There seems to be a steeper gradient increase for BMI covariate values between the quantile 0 and 0.5 and the same can be observed for the map covariate values between quantile -1.25 to -0.75. Thus we can observe that the relationship between the output and the covariate values are not strictly linear. It would also be interesting to investigate the partial dependence plots of the many other covariates, however this is left out for future  studies and analysis. The BART model is thus able to model non-linear relationships significantly well. 
+
 \subsection{Second experiment results : Performance Comparison}
-\subsubsection{Comparison with BART library}
+\subsubsection{"BART" library}
+As a comparison, a BART model is also constructed from the "BART" with the default settings. While most of the prior modelling and default parameters are similar, there are differences to some of the default hyperparameters and some model assumptions as highlighted by Kapelner and Bleich in their bartMachine publication \cite{}. The BART model implementation from the "BART" library is closer to the original BART publication by Chipman e.t. al. The main differences in the hyperparmeter setting are that in the "BART" library, the default number of tree is taken to be m = 200, burn-iteration is taken to be 100 iterations, and the post burn-in iteration is taken to be 1000 iterations. The modelling and training takes 3 seconds in our local machine. While for bartMachine , it takes 2 seconds in our local machine. The obtained test-set RMSE value is 55.5 which is about 10\% better than the test-set RMSE value from the bartMachine implementation. While there are slight improvements in the RMSE value, if the different implementations and modelling assumptions significantly result to a significant difference in performance. An in detail significance testing and performance study can be done to investigate this into more detail. This is not included within the scope of our current study.
 
-
-\subsubsection{Classic CART Results}
+\subsubsection{Classic CART}
 Regression trees are generated through the rpart package in R. We fit the model on the training data by setting method="anova" as we are working in a regression setting. The regression tree is shown in Figure \ref{CART1}. 
 
 \begin{figure}[h!] 
@@ -555,7 +572,7 @@ Lastly, the barplot of the variables that have the most largest weight in the pr
 \label{CARTimp}
 \end{figure}
 
-\subsubsection{Random Forest Results}
+\subsubsection{Random Forest}
 As mentioned before, in RF each tree is allowed to grow to a bootstrap resampled data set, and an advantage of it is the fact the RF has an out-of-bag (OOB) sample which gives a good and efficient approximation of the test error. The plot in figure \label{RFOOB} shows the OOB error versus the validation error for the random forest. As expected, there are some differences between them. The out-of-bag error seems to be constantly higher than the test error. 
 
 \begin{figure}[h!] 
@@ -603,15 +620,53 @@ The 5 most important features for the random forest based on node purity are ltg
 \caption{Variable importance for random forest.}
 \label{RFImp}
 \end{figure}
+
+\subsubsection{Results Discussion}
+The performance of the different models on diabetes dataset are summarized in the following table. Note that the values for the regression tree is taken from the best optimized regression tree as obtained previously. 
+
+\begin{table} \label{result}
+\centering \caption{Performance metrics of the different models on diabetes dataset.}
+\begin{tabular}{|c|c|c|c|c|} 
+\hline &  Regression Tree & Random Forest & bartMachine & BART \\
+\hline RSME on test set & 63.9 & 56.8 & 56.1  & 55.5 \\
+\hline $R^2$ on test set & 0.33 & 0.47 & 0.50  & 0.53\\
+\hline
+\end{tabular}
+\end{table}
+
+In general, our BART models perform significantly better than the most optimized version of the regression tree model. Meanwhile, the performance improvement is marginal compared to the random forest model. Interestingly, the BART model implemented by the BART library performs marginally better than the bartMachine implementation, which may be due to the different prior hyperparameter values and prior modelling assumptions taken by the publisher of both R libraries. In conclusion, BART shows to be a very promising alternative to other very commonly used regression machine learning methods.
+
+\subsection{Third experiment results : Friedman Data}
+The dataset specification can be found in the \ref{dataset} section. The results from the third experiment are summarized in Table \ref{result}.
+
+\begin{table} \label{result}
+\centering \caption{Performance metrics of the different models on Friedman dataset.}
+\begin{tabular}{|c|c|c|c|} 
+\hline & Regression Tree & Random Forest & BART \\
+\hline RSME on test set & 2.93 & 2.51 & 1.61 \\
+\hline $R^2$ on test set & 0.62 & 0.78 & 0.88 \\
+\hline
+\end{tabular}
+\end{table}
+
+From the results we can see that BART significantly outperform classic regression tree and random forest models for the synthetic Friedman dataset. BART is able to decide better on the 5 important covariates out of the 100 covariates and perform more accurate predictions in a highly non-linear dataset. In conclusion, this test further shows how BART is a powerful a machine learning model that is able to capture non-linear dependencies in data with high degree of non-linearity. 
+
+\subsection{Discussion of results from other studies}
+Scarpone et al. (2020) analyze only the first wave of COVID-19 data in Germany using the BART model to identify important socioeconomic and infrastructural covariates with the number of incidents. They conclude that the implemented measure of social distancing and border restrictions are important in reducing the spread of COVID-19 infections, as the incidence rates are dependent on the geographical location, transportation infrastructure and the labor market structure of the county. Moreover, in the paper, it is concluded that BART is a very powerful machine learning tool for modelling non-linear data in high dimensional space, and that the model can be entirely explained from only a subset of the variables.  
+Kapelner and Bleich (2016) introduce the bartMachine package in R, which implements the Bayesian Additive Regression trees.  In order to show the effectiveness and efficiency of such a package, they perform a BART analysis on the automobile dataset from UCI Machine Learning Repository to predict the automobile's price from 25 features. Observing the out-of-sample versus in-sample results, they conclude that the model is slightly overfitting. Trying to build a better bartMachine model, a grid search over a set of hyperparameter combinations is performed with the help of barMachineCV function. This returns the best mode with better in-sample performance compared to the default model mentioned above. Furthermore, the MCMC convergence diagnostics is performed. As in many machine learning research, it is natural to ask which variables are the most important ones in prediction. Kapelner and Bleich (2016) perform such analysis. Lastly, they investigate the partial dependence aiming to analyse how $x_j$ affects the response on average. We would like to acknowledge that most of our work in this report paper was based on this publication by Kapelner and Bleich (2016). 
+
 \section{Limitations and Outlook}
-
-
+-
+-Performance comparison 
+-Playing around with the priors, test with other sampling methods
+-
 \section{Conclusion}
-
+This report paper is focused on analyzing the power of the Bayesian additive regression trees model through a real world application using data from 442 patients diagnosed with diabetes. The dataset contains 10 original feature vectors including information such as age, sex, BMI, BP and the serum measurements, aiming to predic the disease progression one year after the baseline. To show the effectiveness of the BART model, we compare such a model with classical CART and Random Forests. The results show that the default BART model provides more accurate results even compared to already optimized classical CART and Random Forest models. This is confirmed when we assess the comparison in a controlled setting with synthetic Friedman data, whereby we observe that the BART models show a much better performance against high dimensional, non-linear data. We also provided insights into previous studies where we based our experiments on. Lastly, a short insight into current limtations and outlook was provided.
 
 
 \bibliographystyle{plain}
 \bibliography{citations}
 
+\section{Appendix}
 \end{document}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.3.10)  11 JUN 2021 14:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.3.10)  13 JUN 2021 16:58
 entering extended mode
 **"./Bayesian Computing Report.tex"
 ("Bayesian Computing Report.tex"
@@ -660,6 +660,9 @@ LaTeX Warning: Label `VarImp' multiply defined.
 
 LaTeX Warning: Label `RFOOB' multiply defined.
 
+
+LaTeX Warning: Label `result' multiply defined.
+
 )
 \openout1 = `"Bayesian Computing Report.aux"'.
 
@@ -794,7 +797,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 
 pdfTeX warning: pdflatex (file ./images/HeaderUSI_FAU.pdf): PDF inclusion: foun
 d PDF version <1.6>, but at most version <1.5> allowed
-<images/HeaderUSI_FAU.pdf, id=119, 625.96059pt x 85.3579pt>
+<images/HeaderUSI_FAU.pdf, id=135, 625.96059pt x 85.3579pt>
 File: images/HeaderUSI_FAU.pdf Graphic file (type pdf)
 <use images/HeaderUSI_FAU.pdf>
 Package pdftex.def Info: images/HeaderUSI_FAU.pdf  used on input line 31.
@@ -938,254 +941,269 @@ LaTeX Font Info:    Font shape `T1/mdput/m/n' will be
 (Font)              scaled to size 7.52002pt on input line 35.
 LaTeX Font Info:    Font shape `T1/mdput/m/it' will be
 (Font)              scaled to size 7.52002pt on input line 35.
-LaTeX Font Info:    Font shape `OT1/mdput/m/n' will be
-(Font)              scaled to size 9.40002pt on input line 41.
-LaTeX Font Info:    Font shape `OT1/mdput/m/n' will be
-(Font)              scaled to size 6.58002pt on input line 41.
-LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
-(Font)              scaled to size 9.40002pt on input line 41.
-LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
-(Font)              scaled to size 6.58002pt on input line 41.
-LaTeX Font Info:    Font shape `OMS/mdput/m/n' will be
-(Font)              scaled to size 9.40002pt on input line 41.
-LaTeX Font Info:    Font shape `OMS/mdput/m/n' will be
-(Font)              scaled to size 6.58002pt on input line 41.
-LaTeX Font Info:    Font shape `OMX/mdput/m/n' will be
-(Font)              scaled to size 9.40002pt on input line 41.
-LaTeX Font Info:    Font shape `OMX/mdput/m/n' will be
-(Font)              scaled to size 6.58002pt on input line 41.
-LaTeX Font Info:    Font shape `OML/mdput/m/n' will be
-(Font)              scaled to size 9.40002pt on input line 41.
-LaTeX Font Info:    Font shape `OML/mdput/m/n' will be
-(Font)              scaled to size 6.58002pt on input line 41.
-LaTeX Font Info:    Font shape `MDA/mdput/m/n' will be
-(Font)              scaled to size 9.40002pt on input line 41.
-LaTeX Font Info:    Font shape `MDA/mdput/m/n' will be
-(Font)              scaled to size 6.58002pt on input line 41.
-LaTeX Font Info:    Font shape `MDB/mdput/m/n' will be
-(Font)              scaled to size 9.40002pt on input line 41.
-LaTeX Font Info:    Font shape `MDB/mdput/m/n' will be
-(Font)              scaled to size 6.58002pt on input line 41.
  [1
 
 {C:/Users/erickfs/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./images/Head
 erUSI_FAU.pdf>]
-<images/image114.png, id=149, 683.55376pt x 374.39874pt>
+LaTeX Font Info:    Font shape `OT1/mdput/m/n' will be
+(Font)              scaled to size 9.40002pt on input line 51.
+LaTeX Font Info:    Font shape `OT1/mdput/m/n' will be
+(Font)              scaled to size 6.58002pt on input line 51.
+LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
+(Font)              scaled to size 9.40002pt on input line 51.
+LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
+(Font)              scaled to size 6.58002pt on input line 51.
+LaTeX Font Info:    Font shape `OMS/mdput/m/n' will be
+(Font)              scaled to size 9.40002pt on input line 51.
+LaTeX Font Info:    Font shape `OMS/mdput/m/n' will be
+(Font)              scaled to size 6.58002pt on input line 51.
+LaTeX Font Info:    Font shape `OMX/mdput/m/n' will be
+(Font)              scaled to size 9.40002pt on input line 51.
+LaTeX Font Info:    Font shape `OMX/mdput/m/n' will be
+(Font)              scaled to size 6.58002pt on input line 51.
+LaTeX Font Info:    Font shape `OML/mdput/m/n' will be
+(Font)              scaled to size 9.40002pt on input line 51.
+LaTeX Font Info:    Font shape `OML/mdput/m/n' will be
+(Font)              scaled to size 6.58002pt on input line 51.
+LaTeX Font Info:    Font shape `MDA/mdput/m/n' will be
+(Font)              scaled to size 9.40002pt on input line 51.
+LaTeX Font Info:    Font shape `MDA/mdput/m/n' will be
+(Font)              scaled to size 6.58002pt on input line 51.
+LaTeX Font Info:    Font shape `MDB/mdput/m/n' will be
+(Font)              scaled to size 9.40002pt on input line 51.
+LaTeX Font Info:    Font shape `MDB/mdput/m/n' will be
+(Font)              scaled to size 6.58002pt on input line 51.
+<images/image114.png, id=160, 683.55376pt x 374.39874pt>
 File: images/image114.png Graphic file (type png)
 <use images/image114.png>
-Package pdftex.def Info: images/image114.png  used on input line 53.
+Package pdftex.def Info: images/image114.png  used on input line 55.
 (pdftex.def)             Requested size: 313.69026pt x 171.8199pt.
 LaTeX Font Info:    Trying to load font information for TS1+mdput on input line
- 60.
+ 62.
 
 (C:\Users\erickfs\AppData\Local\Programs\MiKTeX\tex/latex/mathdesign/mdput\ts1m
 dput.fd
 File: ts1mdput.fd 2013/08/29 Fontinst v1.933 font definitions for TS1/mdput.
 )
 LaTeX Font Info:    Font shape `TS1/mdput/m/n' will be
-(Font)              scaled to size 9.40002pt on input line 60.
+(Font)              scaled to size 9.40002pt on input line 62.
  [2 <./images/image114.png>]
 LaTeX Font Info:    Font shape `T1/mdput/m/n' will be
-(Font)              scaled to size 6.58002pt on input line 82.
+(Font)              scaled to size 6.58002pt on input line 84.
 LaTeX Font Info:    Font shape `T1/mdput/m/n' will be
-(Font)              scaled to size 4.70001pt on input line 82.
+(Font)              scaled to size 4.70001pt on input line 84.
  [3]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 131.
+put line 133.
 LaTeX Font Info:    Font shape `T1/mdput/b/n' will be
-(Font)              scaled to size 9.40002pt on input line 131.
+(Font)              scaled to size 9.40002pt on input line 133.
 LaTeX Font Info:    Font shape `T1/mdput/m/fsc' will be
-(Font)              scaled to size 9.40002pt on input line 134.
+(Font)              scaled to size 9.40002pt on input line 136.
  [4] [5]
-<images/image113.png, id=187, 594.22pt x 398.48875pt>
+<images/image113.png, id=201, 594.22pt x 398.48875pt>
 File: images/image113.png Graphic file (type png)
 <use images/image113.png>
-Package pdftex.def Info: images/image113.png  used on input line 208.
+Package pdftex.def Info: images/image113.png  used on input line 210.
 (pdftex.def)             Requested size: 268.88127pt x 180.32155pt.
- [6 <./images/image113.png>]
-[7]
-LaTeX Font Info:    Font shape `OT1/mdput/b/n' will be
-(Font)              scaled to size 9.40002pt on input line 275.
-LaTeX Font Info:    Font shape `OT1/mdput/b/n' will be
-(Font)              scaled to size 6.58002pt on input line 275.
-LaTeX Font Info:    Font shape `OT1/mdput/b/n' will be
-(Font)              scaled to size 4.70001pt on input line 275.
-LaTeX Font Info:    Font shape `OML/mdput/b/it' will be
-(Font)              scaled to size 9.40002pt on input line 275.
-LaTeX Font Info:    Font shape `OML/mdput/b/it' will be
-(Font)              scaled to size 6.58002pt on input line 275.
-LaTeX Font Info:    Font shape `OML/mdput/b/it' will be
-(Font)              scaled to size 4.70001pt on input line 275.
-LaTeX Font Info:    Font shape `OMS/mdput/b/n' will be
-(Font)              scaled to size 9.40002pt on input line 275.
-LaTeX Font Info:    Font shape `OMS/mdput/b/n' will be
-(Font)              scaled to size 6.58002pt on input line 275.
-LaTeX Font Info:    Font shape `OMS/mdput/b/n' will be
-(Font)              scaled to size 4.70001pt on input line 275.
-LaTeX Font Info:    Font shape `OMX/mdput/b/n' will be
-(Font)              scaled to size 9.40002pt on input line 275.
-LaTeX Font Info:    Font shape `OMX/mdput/b/n' will be
-(Font)              scaled to size 6.58002pt on input line 275.
-LaTeX Font Info:    Font shape `OMX/mdput/b/n' will be
-(Font)              scaled to size 4.70001pt on input line 275.
-LaTeX Font Info:    Font shape `OML/mdput/b/n' will be
-(Font)              scaled to size 9.40002pt on input line 275.
-LaTeX Font Info:    Font shape `OML/mdput/b/n' will be
-(Font)              scaled to size 6.58002pt on input line 275.
-LaTeX Font Info:    Font shape `OML/mdput/b/n' will be
-(Font)              scaled to size 4.70001pt on input line 275.
-LaTeX Font Info:    Font shape `MDA/mdput/b/n' will be
-(Font)              scaled to size 9.40002pt on input line 275.
-LaTeX Font Info:    Font shape `MDA/mdput/b/n' will be
-(Font)              scaled to size 6.58002pt on input line 275.
-LaTeX Font Info:    Font shape `MDA/mdput/b/n' will be
-(Font)              scaled to size 4.70001pt on input line 275.
-LaTeX Font Info:    Font shape `MDB/mdput/b/n' will be
-(Font)              scaled to size 9.40002pt on input line 275.
-LaTeX Font Info:    Font shape `MDB/mdput/b/n' will be
-(Font)              scaled to size 6.58002pt on input line 275.
-LaTeX Font Info:    Font shape `MDB/mdput/b/n' will be
-(Font)              scaled to size 4.70001pt on input line 275.
 
-Overfull \hbox (8.42348pt too wide) in paragraph at lines 295--296
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6] [7 <./images/image113.png>]
+LaTeX Font Info:    Font shape `OT1/mdput/b/n' will be
+(Font)              scaled to size 9.40002pt on input line 277.
+LaTeX Font Info:    Font shape `OT1/mdput/b/n' will be
+(Font)              scaled to size 6.58002pt on input line 277.
+LaTeX Font Info:    Font shape `OT1/mdput/b/n' will be
+(Font)              scaled to size 4.70001pt on input line 277.
+LaTeX Font Info:    Font shape `OML/mdput/b/it' will be
+(Font)              scaled to size 9.40002pt on input line 277.
+LaTeX Font Info:    Font shape `OML/mdput/b/it' will be
+(Font)              scaled to size 6.58002pt on input line 277.
+LaTeX Font Info:    Font shape `OML/mdput/b/it' will be
+(Font)              scaled to size 4.70001pt on input line 277.
+LaTeX Font Info:    Font shape `OMS/mdput/b/n' will be
+(Font)              scaled to size 9.40002pt on input line 277.
+LaTeX Font Info:    Font shape `OMS/mdput/b/n' will be
+(Font)              scaled to size 6.58002pt on input line 277.
+LaTeX Font Info:    Font shape `OMS/mdput/b/n' will be
+(Font)              scaled to size 4.70001pt on input line 277.
+LaTeX Font Info:    Font shape `OMX/mdput/b/n' will be
+(Font)              scaled to size 9.40002pt on input line 277.
+LaTeX Font Info:    Font shape `OMX/mdput/b/n' will be
+(Font)              scaled to size 6.58002pt on input line 277.
+LaTeX Font Info:    Font shape `OMX/mdput/b/n' will be
+(Font)              scaled to size 4.70001pt on input line 277.
+LaTeX Font Info:    Font shape `OML/mdput/b/n' will be
+(Font)              scaled to size 9.40002pt on input line 277.
+LaTeX Font Info:    Font shape `OML/mdput/b/n' will be
+(Font)              scaled to size 6.58002pt on input line 277.
+LaTeX Font Info:    Font shape `OML/mdput/b/n' will be
+(Font)              scaled to size 4.70001pt on input line 277.
+LaTeX Font Info:    Font shape `MDA/mdput/b/n' will be
+(Font)              scaled to size 9.40002pt on input line 277.
+LaTeX Font Info:    Font shape `MDA/mdput/b/n' will be
+(Font)              scaled to size 6.58002pt on input line 277.
+LaTeX Font Info:    Font shape `MDA/mdput/b/n' will be
+(Font)              scaled to size 4.70001pt on input line 277.
+LaTeX Font Info:    Font shape `MDB/mdput/b/n' will be
+(Font)              scaled to size 9.40002pt on input line 277.
+LaTeX Font Info:    Font shape `MDB/mdput/b/n' will be
+(Font)              scaled to size 6.58002pt on input line 277.
+LaTeX Font Info:    Font shape `MDB/mdput/b/n' will be
+(Font)              scaled to size 4.70001pt on input line 277.
+
+Overfull \hbox (8.42348pt too wide) in paragraph at lines 297--298
 \T1/mdput/m/n/10 Metropolis-within-Gibbs sampler that de-cides one of the four 
 pos-sible steps ( GROW, PRUNE, CHANGE,
  []
 
-[8] [9] [10]
-<images/CI.png, id=243, 606.265pt x 606.265pt>
+[8] [9] [10] [11]
+<images/CI.png, id=263, 606.265pt x 606.265pt>
 File: images/CI.png Graphic file (type png)
 <use images/CI.png>
-Package pdftex.def Info: images/CI.png  used on input line 397.
+Package pdftex.def Info: images/CI.png  used on input line 412.
 (pdftex.def)             Requested size: 268.88127pt x 268.88512pt.
- [11 <./images/CI.png>]
-<images/PI.png, id=253, 606.265pt x 606.265pt>
+<images/PI.png, id=266, 606.265pt x 606.265pt>
 File: images/PI.png Graphic file (type png)
 <use images/PI.png>
-Package pdftex.def Info: images/PI.png  used on input line 406.
+Package pdftex.def Info: images/PI.png  used on input line 421.
 (pdftex.def)             Requested size: 268.88127pt x 268.88512pt.
-<images/RMSEtrees.png, id=255, 389.20406pt x 342.5297pt>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/RMSEtrees.png, id=268, 389.20406pt x 342.5297pt>
 File: images/RMSEtrees.png Graphic file (type png)
 <use images/RMSEtrees.png>
-Package pdftex.def Info: images/RMSEtrees.png  used on input line 418.
+Package pdftex.def Info: images/RMSEtrees.png  used on input line 433.
 (pdftex.def)             Requested size: 268.88127pt x 236.64365pt.
 
-
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[12 <./images/PI.png>]
-<images/ErrorAss.png, id=264, 699.61375pt x 606.265pt>
+[12 <./images/CI.png>] [13 <./images/PI.png> <./images/RMSEtrees.png>]
+<images/ErrorAss.png, id=286, 699.61375pt x 606.265pt>
 File: images/ErrorAss.png Graphic file (type png)
 <use images/ErrorAss.png>
-Package pdftex.def Info: images/ErrorAss.png  used on input line 430.
+Package pdftex.def Info: images/ErrorAss.png  used on input line 445.
 (pdftex.def)             Requested size: 313.69026pt x 271.83614pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<images/MCMC_convergence.png, id=266, 722.7pt x 371.13657pt>
+<images/MCMC_convergence.png, id=288, 722.7pt x 371.13657pt>
 File: images/MCMC_convergence.png Graphic file (type png)
 <use images/MCMC_convergence.png>
-Package pdftex.def Info: images/MCMC_convergence.png  used on input line 442.
+Package pdftex.def Info: images/MCMC_convergence.png  used on input line 457.
 (pdftex.def)             Requested size: 448.1309pt x 230.13626pt.
+LaTeX Font Info:    Font shape `T1/mdput/b/n' will be
+(Font)              scaled to size 8.46002pt on input line 458.
+LaTeX Font Info:    Font shape `T1/mdput/b/n' will be
+(Font)              scaled to size 5.64001pt on input line 458.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[13 <./images/RMSEtrees.png>] [14 <./images/ErrorAss.png> <./images/MCMC_conver
-gence.png>]
+[14 <./images/ErrorAss.png>]
 
-LaTeX Warning: Reference `' on page 15 undefined on input line 464.
+LaTeX Warning: Reference `' on page 15 undefined on input line 479.
 
-<images/VarImp.png, id=281, 722.7pt x 371.13657pt>
+[15 <./images/MCMC_convergence.png>]
+<images/VarImp.png, id=302, 722.7pt x 371.13657pt>
 File: images/VarImp.png Graphic file (type png)
 <use images/VarImp.png>
-Package pdftex.def Info: images/VarImp.png  used on input line 468.
+Package pdftex.def Info: images/VarImp.png  used on input line 483.
 (pdftex.def)             Requested size: 448.1309pt x 230.13626pt.
-<images/PD_BMI.png, id=282, 408.02437pt x 356.0803pt>
+<images/PD_BMI.png, id=303, 408.02437pt x 356.0803pt>
 File: images/PD_BMI.png Graphic file (type png)
 <use images/PD_BMI.png>
-Package pdftex.def Info: images/PD_BMI.png  used on input line 477.
+Package pdftex.def Info: images/PD_BMI.png  used on input line 492.
 (pdftex.def)             Requested size: 313.69026pt x 273.76974pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/PD_map.png, id=283, 408.02437pt x 356.0803pt>
+<images/PD_map.png, id=304, 408.02437pt x 356.0803pt>
 File: images/PD_map.png Graphic file (type png)
 <use images/PD_map.png>
-Package pdftex.def Info: images/PD_map.png  used on input line 484.
+Package pdftex.def Info: images/PD_map.png  used on input line 499.
 (pdftex.def)             Requested size: 313.69026pt x 273.76974pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[15 <./images/VarImp.png>] [16 <./images/PD_BMI.png> <./images/PD_map.png>]
-<images/image107.png, id=300, 705.38531pt x 479.54156pt>
+[16 <./images/VarImp.png>] [17 <./images/PD_BMI.png> <./images/PD_map.png>]
+<images/image107.png, id=320, 705.38531pt x 479.54156pt>
 File: images/image107.png Graphic file (type png)
 <use images/image107.png>
-Package pdftex.def Info: images/image107.png  used on input line 498.
+Package pdftex.def Info: images/image107.png  used on input line 515.
 (pdftex.def)             Requested size: 313.69026pt x 213.25264pt.
-<images/image111.png, id=302, 621.07031pt x 365.86688pt>
+<images/image111.png, id=322, 621.07031pt x 365.86688pt>
 File: images/image111.png Graphic file (type png)
 <use images/image111.png>
-Package pdftex.def Info: images/image111.png  used on input line 507.
+Package pdftex.def Info: images/image111.png  used on input line 524.
 (pdftex.def)             Requested size: 313.69026pt x 184.792pt.
 
-Overfull \hbox (14.62207pt too wide) in paragraph at lines 512--513
+Overfull \hbox (14.62207pt too wide) in paragraph at lines 529--530
 \T1/mdput/m/n/10 formed through auto-matic se-lec-tion of the com-plex-ity para
 -met-ers as-so-ci-ated with the smal-lest cross-validation
  []
 
-[17 <./images/image107.png (PNG copy)> <./images/image111.png>]
-<images/image124.png, id=313, 621.07031pt x 365.86688pt>
+[18 <./images/image107.png (PNG copy)> <./images/image111.png>]
+<images/image124.png, id=333, 621.07031pt x 365.86688pt>
 File: images/image124.png Graphic file (type png)
 <use images/image124.png>
-Package pdftex.def Info: images/image124.png  used on input line 516.
+Package pdftex.def Info: images/image124.png  used on input line 533.
 (pdftex.def)             Requested size: 313.69026pt x 184.792pt.
-<images/image127.png, id=314, 621.07031pt x 365.86688pt>
+<images/image127.png, id=334, 621.07031pt x 365.86688pt>
 File: images/image127.png Graphic file (type png)
 <use images/image127.png>
-Package pdftex.def Info: images/image127.png  used on input line 523.
+Package pdftex.def Info: images/image127.png  used on input line 540.
 (pdftex.def)             Requested size: 313.69026pt x 184.792pt.
- [18 <./images/image124.png> <./images/image127.png>]
-Overfull \hbox (60.52179pt too wide) in paragraph at lines 532--538
+ [19 <./images/image124.png> <./images/image127.png>]
+Overfull \hbox (60.52179pt too wide) in paragraph at lines 549--555
  [][] 
  []
 
-<images/image110.png, id=324, 505.89pt x 317.68687pt>
+<images/image110.png, id=346, 505.89pt x 317.68687pt>
 File: images/image110.png Graphic file (type png)
 <use images/image110.png>
-Package pdftex.def Info: images/image110.png  used on input line 543.
+Package pdftex.def Info: images/image110.png  used on input line 560.
 (pdftex.def)             Requested size: 313.69026pt x 196.99289pt.
-<images/image112.png, id=326, 505.89pt x 317.68687pt>
+<images/image112.png, id=348, 505.89pt x 317.68687pt>
 File: images/image112.png Graphic file (type png)
 <use images/image112.png>
-Package pdftex.def Info: images/image112.png  used on input line 553.
+Package pdftex.def Info: images/image112.png  used on input line 570.
 (pdftex.def)             Requested size: 313.69026pt x 196.99289pt.
-[19 <./images/image110.png> <./images/image112.png>]
-<images/image125.png, id=337, 505.89pt x 317.68687pt>
+[20 <./images/image110.png> <./images/image112.png>]
+<images/image125.png, id=357, 505.89pt x 317.68687pt>
 File: images/image125.png Graphic file (type png)
 <use images/image125.png>
-Package pdftex.def Info: images/image125.png  used on input line 563.
+Package pdftex.def Info: images/image125.png  used on input line 580.
 (pdftex.def)             Requested size: 313.69026pt x 196.99289pt.
-<images/image118.png, id=339, 505.89pt x 317.68687pt>
+<images/image118.png, id=359, 505.89pt x 317.68687pt>
 File: images/image118.png Graphic file (type png)
 <use images/image118.png>
-Package pdftex.def Info: images/image118.png  used on input line 572.
+Package pdftex.def Info: images/image118.png  used on input line 589.
 (pdftex.def)             Requested size: 313.69026pt x 196.99289pt.
- [20 <./images/image125.png> <./images/image118.png>]
-<images/image121.png, id=349, 505.89pt x 317.68687pt>
+ [21 <./images/image125.png> <./images/image118.png>]
+<images/image121.png, id=369, 505.89pt x 317.68687pt>
 File: images/image121.png Graphic file (type png)
 <use images/image121.png>
-Package pdftex.def Info: images/image121.png  used on input line 581.
+Package pdftex.def Info: images/image121.png  used on input line 598.
 (pdftex.def)             Requested size: 313.69026pt x 196.99289pt.
-<images/image115.png, id=351, 603.0028pt x 516.42938pt>
+<images/image115.png, id=371, 603.0028pt x 516.42938pt>
 File: images/image115.png Graphic file (type png)
 <use images/image115.png>
-Package pdftex.def Info: images/image115.png  used on input line 602.
+Package pdftex.def Info: images/image115.png  used on input line 619.
 (pdftex.def)             Requested size: 313.69026pt x 268.64726pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+
+Package caption Warning: \label without proper reference on input line 642.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `result' on page 22 undefined on input line 640.
+
+[22 <./images/image121.png>] [23 <./images/image115.png>]
 ("Bayesian Computing Report.bbl"
 LaTeX Font Info:    Font shape `T1/mdput/m/it' will be
 (Font)              scaled to size 8.46002pt on input line 5.
@@ -1209,8 +1227,7 @@ Overfull \hbox (53.24847pt too wide) in paragraph at lines 10--16
 rogram-[]and-[]speech-[]recognition-[]a4072d228520$[][]\T1/mdput/m/n/9 ,
  []
 
-[21 <./images/image121.png>]) [22 <./images/image115.png>]
-("Bayesian Computing Report.aux")
+) [24] [25] ("Bayesian Computing Report.aux")
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1222,14 +1239,14 @@ LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `"Bayesian Computing Report".out' has not cha
 nged.
-(rerunfilecheck)             Checksum: 696814D962D3040BF1203EA28DBB0902;5244.
+(rerunfilecheck)             Checksum: 362A99904C8917F5A2868F13610D661F;5873.
  ) 
 Here is how much of TeX's memory you used:
- 15719 strings out of 479618
- 237283 string characters out of 2864076
- 538106 words of memory out of 3000000
- 32437 multiletter control sequences out of 15000+200000
- 588068 words of font info for 164 fonts, out of 3000000 for 9000
+ 15737 strings out of 479618
+ 237515 string characters out of 2864076
+ 542234 words of memory out of 3000000
+ 32445 multiletter control sequences out of 15000+200000
+ 603334 words of font info for 166 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  86i,11n,131p,2086b,517s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\erickfs\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi642\ec
@@ -1250,9 +1267,9 @@ iKTeX/fonts/type1/adobe/utopia/putb8a.pfb><C:/Users/erickfs/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/adobe/utopia/putbi8a.pfb><C:/Users/erickfs/AppData/Local
 /Programs/MiKTeX/fonts/type1/adobe/utopia/putr8a.pfb><C:/Users/erickfs/AppData/
 Local/Programs/MiKTeX/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on "Bayesian Computing Report.pdf" (22 pages, 731018 bytes).
+Output written on "Bayesian Computing Report.pdf" (25 pages, 745832 bytes).
 PDF statistics:
- 610 PDF objects out of 1000 (max. 8388607)
- 126 named destinations out of 1000 (max. 500000)
- 338 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 647 PDF objects out of 1000 (max. 8388607)
+ 136 named destinations out of 1000 (max. 500000)
+ 370 words of extra memory for PDF output out of 10000 (max. 10000000)
 
